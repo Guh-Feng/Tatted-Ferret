@@ -6,6 +6,7 @@
 	$: activeUrl = $page.url.pathname;
 
 	// File uploads, email configuration, and sparkles
+	// Birthday 18 confirm
 
 	//Value bindings
 	let firstName : string;
@@ -113,14 +114,13 @@
 
 	let fileuploadprops2 = {
 		id: 'reference',
-		name: "area"
+		name: "reference"
 	};
 
 	//Validation
 	let submitConfirm = false;
 	let requiredAppear = false;
 	function settingValidity(){
-		console.log("potato")
 		let valid = true;
 		if(!firstName)
 			valid = false;
@@ -176,7 +176,7 @@
 
 	<Label for="small-input" class="block mb-2">Date of Birth <span class="text-red-600">*</span></Label>
 	<div class="flex w-full mb-4">
-		<Input id="date" name="date"  type="date" class="h-10 w-32 mx-3 {requiredAppear && !dateOfBirth ? "border-red-500 bg-red-200" : ""}" bind:value={dateOfBirth}/>
+		<Input id="DOB" name="DOB"  type="date" class="h-10 w-32 mx-3 {requiredAppear && !dateOfBirth ? "border-red-500 bg-red-200" : ""}" bind:value={dateOfBirth}/>
 	</div>
 
 	<Label for="small-input" class="block mb-2">Pronouns</Label>
@@ -217,19 +217,19 @@
 
 	<Label class="mb-4 {requiredAppear && !available_time.early && !available_time.late ? "bg-red-200" : ""}" >
 		Availability: <span class="text-red-600">*</span>
-			<Checkbox name="available_time" class="my-2 ml-2" bind:checked={available_time.early}>11:30 am - 3:00 pm</Checkbox>
-			<Checkbox name="available_time" class="ml-2" bind:checked={available_time.late}>3:30 pm - 7:00 pm</Checkbox>
+			<Checkbox name="early" class="my-2 ml-2" bind:checked={available_time.early}>11:30 am - 3:00 pm</Checkbox>
+			<Checkbox name="late" class="ml-2" bind:checked={available_time.late}>3:30 pm - 7:00 pm</Checkbox>
 	</Label>
 
 	<Label class="mb-4 {requiredAppear && !available_days.monday && !available_days.tuesday && !available_days.wednesday && !available_days.thursday && !available_days.friday && !available_days.saturday && !available_days.sunday ? "bg-red-200" : ""}">
 		Availability - please select ALL days of the week that apply. Please keep in mind that not all artists work all of these days, but some are flexible: <span class="text-red-600">*</span>
-		<Checkbox name="available_monday" class="my-2 ml-2" bind:checked={available_days.monday}>Monday</Checkbox>
-		<Checkbox name="available_tuesday" class="my-2 ml-2" bind:checked={available_days.tuesday}>Tuesday</Checkbox>
-		<Checkbox name="available_wednesday" class="my-2 ml-2" bind:checked={available_days.wednesday}>Wednesday</Checkbox>
-		<Checkbox name="available_thursday" class="my-2 ml-2" bind:checked={available_days.thursday}>Thursday</Checkbox>
-		<Checkbox name="available_friday" class="my-2 ml-2" bind:checked={available_days.friday}>Friday</Checkbox>
-		<Checkbox name="available_saturday" class="my-2 ml-2" bind:checked={available_days.saturday}>Saturday</Checkbox>
-		<Checkbox name="available_sunday" class="ml-2" bind:checked={available_days.sunday}>Sunday</Checkbox>
+		<Checkbox name="monday" class="my-2 ml-2" bind:checked={available_days.monday}>Monday</Checkbox>
+		<Checkbox name="tuesday" class="my-2 ml-2" bind:checked={available_days.tuesday}>Tuesday</Checkbox>
+		<Checkbox name="wednesday" class="my-2 ml-2" bind:checked={available_days.wednesday}>Wednesday</Checkbox>
+		<Checkbox name="thursday" class="my-2 ml-2" bind:checked={available_days.thursday}>Thursday</Checkbox>
+		<Checkbox name="friday" class="my-2 ml-2" bind:checked={available_days.friday}>Friday</Checkbox>
+		<Checkbox name="saturday" class="my-2 ml-2" bind:checked={available_days.saturday}>Saturday</Checkbox>
+		<Checkbox name="sunday" class="ml-2" bind:checked={available_days.sunday}>Sunday</Checkbox>
 	</Label>
 
 	<Label class="mb-4 {requiredAppear && !tattoo_style.color && !tattoo_style.black_and_grey && !tattoo_style.fine_line && !tattoo_style.other ? "bg-red-200" : ""}">
@@ -260,7 +260,7 @@
 
 	<Label class="mb-4">
 		Working around existing tattoos? <span class="text-red-600">*</span>
-		<Select name="existing" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedExistingTattoos ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedExistingTattoos}  />
+		<Select name="existing_tattoos" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedExistingTattoos ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedExistingTattoos}  />
 	</Label>
 
 	<Label class="mb-4">
