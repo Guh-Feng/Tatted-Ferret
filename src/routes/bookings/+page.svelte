@@ -5,7 +5,7 @@
 	import { Icon } from 'flowbite-svelte-icons';
 	$: activeUrl = $page.url.pathname;
 
-	// Decorators and email
+	// File uploads, email configuration, and sparkles
 
 	//Value bindings
 	let firstName : string;
@@ -166,7 +166,7 @@
 
 <img class="absolute left-80 top-0 ml-10 -z-10 max-h-none max-w-none" height="645" width="645" src="/booking/booking.png" alt="contacts-screen"/>
 
-<form class="absolute w-[28.4em] h-[21.4em] top-48 left-[30.5em] overflow-y-scroll" action={submitConfirm ? "https://formsubmit.co/guh.feng@gmail.com" : ""} method={submitConfirm ? "POST" : ""}>
+<form class="absolute w-[28.4em] h-[21.4em] top-48 left-[30.5em] overflow-y-scroll" action={submitConfirm ? "https://formsubmit.co/tattedferret@gmail.com" : ""} enctype="multipart/form-data" method={submitConfirm ? "POST" : ""}>
 
 	<Label for="small-input" class="block mb-2">Name <span class="text-red-600">*</span></Label>
 	<div class="flex w-full mb-4">	
