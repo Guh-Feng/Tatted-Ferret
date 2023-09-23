@@ -5,10 +5,7 @@
 	import { Icon } from 'flowbite-svelte-icons';
 	$: activeUrl = $page.url.pathname;
 
-	// Include validation and check that checkboxes functions properly or if it needs seperate validation
-	// and write the small text notes. Test each  option individually, especially the  labels
-	// on checkboxes.
-	// Try using props to allow submit to the email form through custom validation https://formsubmit.co/guh.feng@gmail.com
+	// Decorators and email
 
 	//Value bindings
 	let firstName : string;
@@ -157,13 +154,9 @@
 			valid = false;
 		if(!selectedScarring)
 			valid = false;
-		if(!allergies)
-			valid = false;
 		if(!selectedAntibiotics)
 			valid = false;
 		if(!area_photo)
-			valid = false;
-		if(!reference_photo)
 			valid = false;
 		if(valid)
 			submitConfirm = true;
@@ -175,60 +168,61 @@
 
 <form class="absolute w-[28.4em] h-[21.4em] top-48 left-[30.5em] overflow-y-scroll" action={submitConfirm ? "https://formsubmit.co/guh.feng@gmail.com" : ""} method={submitConfirm ? "POST" : ""}>
 
-	<Label for="small-input" class="block mb-4">Name</Label>
+	<Label for="small-input" class="block mb-2">Name <span class="text-red-600">*</span></Label>
 	<div class="flex w-full mb-4">	
-		<Input name="first_name" id="small-input" size="sm" class="w-full mx-1 {requiredAppear && !firstName ? "border-red-500 bg-red-200" : ""}" placeholder="First Name" bind:value={firstName} />
-		<Input name="last_name" id="small-input" size="sm" class="w-full mx-1 {requiredAppear && !lastName ? "border-red-500 bg-red-200" : ""}" placeholder="Last Name" bind:value={lastName} />
+		<Input name="first" id="small-input first" size="sm" class="w-full ml-3 mr-1 {requiredAppear && !firstName ? "border-red-500 bg-red-200" : ""}" placeholder="First Name" bind:value={firstName} />
+		<Input name="last" id="small-input last" size="sm" class="w-full mr-3 ml-1 {requiredAppear && !lastName ? "border-red-500 bg-red-200" : ""}" placeholder="Last Name" bind:value={lastName} />
 	</div>
 
-	<Label for="small-input" class="block mb-2">Date of Birth</Label>
+	<Label for="small-input" class="block mb-2">Date of Birth <span class="text-red-600">*</span></Label>
 	<div class="flex w-full mb-4">
-		<Input id="date" name="date"  type="date" class="h-8 w-32 {requiredAppear && !dateOfBirth ? "border-red-500 bg-red-200" : ""}" bind:value={dateOfBirth}/>
+		<Input id="date" name="date"  type="date" class="h-10 w-32 mx-3 {requiredAppear && !dateOfBirth ? "border-red-500 bg-red-200" : ""}" bind:value={dateOfBirth}/>
 	</div>
 
 	<Label for="small-input" class="block mb-2">Pronouns</Label>
 	<div class="flex w-full mb-4">	
-		<Input name="pronouns" id="small-input" size="sm" class="w-full mx-1" placeholder="" bind:value={pronouns}/>
+		<Input name="pronouns" id="small-input" size="sm" class="w-full mx-3" placeholder="" bind:value={pronouns}/>
 	</div>
 
-	<Label for="small-input" class="block mb-2">Email</Label>
+	<Label for="small-input" class="block mb-2">Email <span class="text-red-600">*</span></Label>
 	<div class="flex w-full mb-4">
-		<Input name="email" id="small-input" size="sm" class="w-full mx-1 {requiredAppear && !email ? "border-red-500 bg-red-200" : ""}" placeholder="example@example.com" bind:value={email}/>
+		<Input name="email" type="email" id="small-input" size="sm" class="w-full mx-3 {requiredAppear && !email ? "border-red-500 bg-red-200" : ""}" placeholder="example@example.com" bind:value={email}/>
 	</div>
 
 	<Label for="small-input" class="block mb-2">Instagram Handle</Label>
 	<div class="flex w-full mb-4">
-		<Input name="instagram_handle" id="small-input" size="sm" class="w-full mx-1" placeholder="" bind:value={insta}/>
+		<Input name="instagram_handle" id="small-input" size="sm" class="w-full mx-3" placeholder="" bind:value={insta}/>
 	</div>
 
-	<Label for="small-input" class="block mb-2">Phone Number</Label>
+	<Label for="small-input" class="block mb-2">Phone Number <span class="text-red-600">*</span></Label>
 	<div class="flex w-full mb-4">	
-		<Input name="phone" id="small-input" size="sm" class="w-full mx-1 {requiredAppear && !phone ? "border-red-500 bg-red-200" : ""}" placeholder="000-000-0000" bind:value={phone}/>
+		<Input name="phone" type="tel" id="small-input" size="sm" class="w-full mx-3 {requiredAppear && !phone ? "border-red-500 bg-red-200" : ""}" placeholder="" bind:value={phone}/>
 	</div>
 
 	<Label class="mb-4">
 		New or Returning Client:
-		<Select name="returning_client" class="mt-2 {requiredAppear && !selectedNewReturning ? "border-red-500 bg-red-200" : ""}" items={newReturning} bind:value={selectedNewReturning}  />
+		<Select name="returning_client" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedNewReturning ? "border-red-500 bg-red-200" : ""}" items={newReturning} bind:value={selectedNewReturning}  />
 	</Label>
 
 	<Label class="mb-4">
-		Do you want a "silent" appointment?
-		<Select name="silent_appointment" class="mt-2" items={yesNo} bind:value={selectedSilent} />
+		Do you want a "silent" appointment? <span class="text-red-600">*</span>
+		<Select name="silent_appointment" class="mt-2 mx-3 w-6/12" items={yesNo} bind:value={selectedSilent} />
+		<p class="text-xs mx-3">Regardless of the reason, you are welcome to use this option and only necessary conversations will be had, such as placement or color choices.</p>
 	</Label>
 	
 	<Label class="mb-4">
-		Preferred Artist:
-		<Select name="preferred_artist" class="mt-2 {requiredAppear && !selectedArtist ? "border-red-500 bg-red-200" : ""}" items={artists} bind:value={selectedArtist}  />
+		Preferred Artist: <span class="text-red-600">*</span>
+		<Select name="preferred_artist" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedArtist ? "border-red-500 bg-red-200" : ""}" items={artists} bind:value={selectedArtist}  />
 	</Label>
 
 	<Label class="mb-4 {requiredAppear && !available_time.early && !available_time.late ? "bg-red-200" : ""}" >
-		Availability:
+		Availability: <span class="text-red-600">*</span>
 			<Checkbox name="available_time" class="my-2 ml-2" bind:checked={available_time.early}>11:30 am - 3:00 pm</Checkbox>
 			<Checkbox name="available_time" class="ml-2" bind:checked={available_time.late}>3:30 pm - 7:00 pm</Checkbox>
 	</Label>
 
 	<Label class="mb-4 {requiredAppear && !available_days.monday && !available_days.tuesday && !available_days.wednesday && !available_days.thursday && !available_days.friday && !available_days.saturday && !available_days.sunday ? "bg-red-200" : ""}">
-		Availability - please select ALL days of the week that apply. Please keep in mind that not all artists work all of these days, but some are flexible:
+		Availability - please select ALL days of the week that apply. Please keep in mind that not all artists work all of these days, but some are flexible: <span class="text-red-600">*</span>
 		<Checkbox name="available_monday" class="my-2 ml-2" bind:checked={available_days.monday}>Monday</Checkbox>
 		<Checkbox name="available_tuesday" class="my-2 ml-2" bind:checked={available_days.tuesday}>Tuesday</Checkbox>
 		<Checkbox name="available_wednesday" class="my-2 ml-2" bind:checked={available_days.wednesday}>Wednesday</Checkbox>
@@ -239,7 +233,7 @@
 	</Label>
 
 	<Label class="mb-4 {requiredAppear && !tattoo_style.color && !tattoo_style.black_and_grey && !tattoo_style.fine_line && !tattoo_style.other ? "bg-red-200" : ""}">
-		Tattoo Design Info - Please select a style:
+		Tattoo Design Info - Please select a style: <span class="text-red-600">*</span>
 		<Checkbox class="my-2 ml-2" bind:checked={tattoo_style.color}>Color</Checkbox>
 		<Checkbox class="my-2 ml-2" bind:checked={tattoo_style.black_and_grey}>Black and Grey</Checkbox>
 		<Checkbox class="my-2 ml-2" bind:checked={tattoo_style.fine_line}>Fine Line</Checkbox>
@@ -247,51 +241,54 @@
 	</Label>
 
 	<Label class="mb-4">
-		Tattoo Design Description: 
-		<Textarea class="mt-2 {requiredAppear && !tattoo_design ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsDesign} bind:value={tattoo_design} />
+		Tattoo Design Description: <span class="text-red-600">*</span>
+		<Textarea class="mt-2 mx-3 w-11/12 {requiredAppear && !tattoo_design ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsDesign} bind:value={tattoo_design} />
+		<p class="text-xs mx-3 -mt-1">Detailed description of design including theme, etc.</p>
+	</Label>
+	
+	<Label class="mb-4">
+		Tattoo Design Placement: <span class="text-red-600">*</span>
+		<Textarea class="mt-2 mx-3 w-11/12 {requiredAppear && !design_placement ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsPlacement} bind:value={design_placement} />
+		<p class="text-xs mx-3 -mt-1">Ex: forearm, inner arm, bicep, thigh, calf, etc.</p>
+	</Label>
+	
+	<Label class="mb-4">
+		Tattoo Design Size <span class="text-red-600">*</span>
+		<Textarea class="mt-2 mx-3 w-11/12 {requiredAppear && !tattoo_size ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsSize} bind:value={tattoo_size} />
+		<p class="text-xs mx-3 -mt-1">Please use inches or centimeters.</p>
 	</Label>
 
 	<Label class="mb-4">
-		Tattoo Design Placement:
-		<Textarea class="mt-2 {requiredAppear && !design_placement ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsPlacement} bind:value={design_placement} />
+		Working around existing tattoos? <span class="text-red-600">*</span>
+		<Select name="existing" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedExistingTattoos ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedExistingTattoos}  />
 	</Label>
 
 	<Label class="mb-4">
-		Tattoo Design Size
-		<Textarea class="mt-2 {requiredAppear && !tattoo_size ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsSize} bind:value={tattoo_size} />
+		Is this tattoo a coverup? <span class="text-red-600">*</span>
+		<Select name="coverup" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedCoverup ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedCoverup}  />
 	</Label>
 
 	<Label class="mb-4">
-		Working around existing tattoos?
-		<Select name="existing" class="mt-2 {requiredAppear && !selectedExistingTattoos ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedExistingTattoos}  />
+		Tattooing over scarring? <span class="text-red-600">*</span>
+		<Select name="scarring" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedScarring ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedScarring}  />
 	</Label>
 
-	<Label class="mb-4">
-		Is this tattoo a coverup?
-		<Select name="coverup" class="mt-2 {requiredAppear && !selectedCoverup ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedCoverup}  />
-	</Label>
-
-	<Label class="mb-4">
-		Tattooing over scarring?
-		<Select name="scarring" class="mt-2 {requiredAppear && !selectedScarring ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedScarring}  />
-	</Label>
-
-	<Label class="mb-4">
+	<Label class="mb-3">
 		Allergies or Skin Conditions?
-		<Textarea class="mt-2 {requiredAppear && !allergies ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsAllergies} bind:value={allergies} />
+		<Textarea class="mt-2 mx-3 w-11/12" {...textAreaPropsAllergies} bind:value={allergies} />
 	</Label>
 
 	<Label class="mb-4">
-		Are you currently on antibiotics?
-		<Select class="mt-2 {requiredAppear && !selectedAntibiotics ? "border-red-500 bg-red-200" : ""}" name="antibiotics" items={yesNo} bind:value={selectedAntibiotics}  />
+		Are you currently on antibiotics? <span class="text-red-600">*</span>
+		<Select class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedAntibiotics ? "border-red-500 bg-red-200" : ""}" name="antibiotics" items={yesNo} bind:value={selectedAntibiotics}  />
 	</Label>
 
-	<Label class="pb-2">Photo(s) of area to be tattooed:
-		<Fileupload {...fileuploadprops} class={requiredAppear && !area_photo ? "border-red-500 bg-red-200" : ""} accept="image/png, image/jpeg" bind:files={area_photo} />
+	<Label class="pb-2">Photo(s) of area to be tattooed: <span class="text-red-600">*</span>
+		<Fileupload {...fileuploadprops} class="mx-3 w-11/12 {requiredAppear && !area_photo ? "border-red-500 bg-red-200" : ""}" accept="image/png, image/jpeg" bind:files={area_photo} />
 	</Label>
 
 	<Label class="pb-2">Reference and/or inspo photo(s):
-		<Fileupload {...fileuploadprops2} class={requiredAppear && !reference_photo ? "border-red-500 bg-red-200" : ""} accept="image/png, image/jpeg" bind:files={reference_photo} />
+		<Fileupload {...fileuploadprops2} class="mx-3 w-11/12" accept="image/png, image/jpeg" bind:files={reference_photo} />
 	</Label>
 	<div class="bg-white mt-8 mx-4 overflow-y-scroll h-40">
 		<p class="text-black">I understand that I will need to pay a deposit at the time of scheduling the appointment.</p>
@@ -305,7 +302,7 @@
 		<p class="text-black">I understand that changing a design within 24 hours of the appointment date may result in a rescheduling or cancellation of the tattoo appointment and the quote given initially might change depending on what is changed in the design.</p>
 	</div>
 
-	<Checkbox class="my-2 ml-8 mx-20" required>I agree to the terms and conditions</Checkbox>
+	<Checkbox class="my-2 ml-8 mx-20" required>I agree to the terms and conditions <span class="text-red-600">*</span></Checkbox>
 
 	<p class="ml-32 text-red-800">{!submitConfirm && requiredAppear ? "Missing Required Info" : ""}</p>
 	<Button on:click={settingValidity} color="red" type="submit" class="my-4 mx-32 w-40">Submit</Button>
