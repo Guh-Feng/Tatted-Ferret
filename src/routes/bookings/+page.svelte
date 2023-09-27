@@ -5,8 +5,8 @@
 	import { Icon } from 'flowbite-svelte-icons';
 	$: activeUrl = $page.url.pathname;
 
-	// File uploads, email configuration, and sparkles
-	// Birthday 18 confirm
+	// 18th birthday tattoos?
+	// Upload/loading for image inconsistently uploading
 
 	//Value bindings
 	let firstName : string;
@@ -21,6 +21,29 @@
 	let selectedNewReturning : string;
 	let selectedSilent : string;
 	let selectedArtist : string;
+	let ageConfirm = false;
+
+	function birthdayValid()
+	{
+		let splitDOB = dateOfBirth.split("-")
+		let currentDate = new Date();
+		if(currentDate.getFullYear() - parseInt(splitDOB[0]) < 18)
+			return false;
+		if(currentDate.getFullYear() - parseInt(splitDOB[0]) == 18 && (currentDate.getMonth() + 1) < parseInt(splitDOB[1]))
+			return false;
+		if(currentDate.getFullYear() - parseInt(splitDOB[0]) == 18 && (currentDate.getMonth() + 1) == parseInt(splitDOB[1]) && currentDate.getDate() < parseInt(splitDOB[2]))
+			return false;
+		return true;
+	}
+
+	function underageCheck()
+	{
+		if(dateOfBirth != undefined)
+			if(birthdayValid())
+				ageConfirm = true;
+			else
+				ageConfirm = false;
+	}
 
 	const available_time = {
 		early: false,
@@ -158,6 +181,8 @@
 			valid = false;
 		if(!area_photo)
 			valid = false;
+		if(!ageConfirm)
+			valid = false;
 		if(valid)
 			submitConfirm = true;
 		requiredAppear = true;
@@ -165,8 +190,10 @@
 </script>
 
 <img class="absolute left-80 top-0 ml-10 -z-10 max-h-none max-w-none" height="645" width="645" src="/booking/booking.png" alt="contacts-screen"/>
+<img class="absolute left-[40em] top-24 z-10" height="100" width="100" src="/booking/sparkles.png" alt="sparkles">
+<img class="absolute left-[24.5em] top-[17em] z-10" height="100" width="100" src="/booking/sparkles_rotated.png" alt="sparkles">
 
-<form class="absolute w-[28.4em] h-[21.4em] top-48 left-[30.5em] overflow-y-scroll" action={submitConfirm ? "https://formsubmit.co/tattedferret@gmail.com" : ""} enctype="multipart/form-data" method={submitConfirm ? "POST" : ""}>
+<form class="absolute w-[28.4em] h-[21.4em] top-48 left-[30.5em] overflow-y-scroll" action={submitConfirm ? "https://formsubmit.co/guh.feng@gmail.com" : ""} enctype="multipart/form-data" method={submitConfirm ? "POST" : ""}>
 
 	<Label for="small-input" class="block mb-2">Name <span class="text-red-600">*</span></Label>
 	<div class="flex w-full mb-4">	
@@ -176,8 +203,12 @@
 
 	<Label for="small-input" class="block mb-2">Date of Birth <span class="text-red-600">*</span></Label>
 	<div class="flex w-full mb-4">
-		<Input id="DOB" name="DOB"  type="date" class="h-10 w-32 mx-3 {requiredAppear && !dateOfBirth ? "border-red-500 bg-red-200" : ""}" bind:value={dateOfBirth}/>
+		<Input id="DOB" name="DOB"  type="date" class="h-10 w-32 mx-3 {requiredAppear && !dateOfBirth ? "border-red-500 bg-red-200" : ""}" bind:value={dateOfBirth} on:input={underageCheck}/>
 	</div>
+
+	{#if dateOfBirth != undefined && !ageConfirm}
+	<p class="text-red-600 -mt-4">Must be 18 or older to book.</p>
+	{/if}
 
 	<Label for="small-input" class="block mb-2">Pronouns</Label>
 	<div class="flex w-full mb-4">	
@@ -200,12 +231,12 @@
 	</div>
 
 	<Label class="mb-4">
-		New or Returning Client:
+		New or Returning Client: <span class="text-red-600">*</span>
 		<Select name="returning_client" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedNewReturning ? "border-red-500 bg-red-200" : ""}" items={newReturning} bind:value={selectedNewReturning}  />
 	</Label>
 
 	<Label class="mb-4">
-		Do you want a "silent" appointment? <span class="text-red-600">*</span>
+		Do you want a "silent" appointment?
 		<Select name="silent_appointment" class="mt-2 mx-3 w-6/12" items={yesNo} bind:value={selectedSilent} />
 		<p class="text-xs mx-3">Regardless of the reason, you are welcome to use this option and only necessary conversations will be had, such as placement or color choices.</p>
 	</Label>
@@ -306,28 +337,4 @@
 
 	<p class="ml-32 text-red-800">{!submitConfirm && requiredAppear ? "Missing Required Info" : ""}</p>
 	<Button on:click={settingValidity} color="red" type="submit" class="my-4 mx-32 w-40">Submit</Button>
-	
-
-<!-- Debugging Code
-	<p>{requiredAppear ? "True?" : "False?"}</p>
-	<p>{firstName ? "True" : "False"}</p>
-	<p>{lastName ? "True" : "False"}</p>
-	<p>{dateOfBirth ? "True" : "False"}</p>
-	<p>{email ? "True" : "False"}</p>
-	<p>{phone ? "True" : "False"}</p>
-	<p>{selectedNewReturning ? "True" : "False"}</p>
-	<p>{available_time.early || available_time.late}</p>
-	<p>{tattoo_design ? "True" : "False"}</p>
-	<p>{design_placement ? "True" : "False"}</p>
-	<p>{tattoo_size ? "True" : "False"}</p>
-	<p>{selectedExistingTattoos ? "True" : "False"}</p>
-	<p>{selectedCoverup ? "True" : "False"}</p>
-	<p>{selectedScarring ? "True" : "False"}</p>
-	<p>{allergies ? "True" : "False"}</p>
-	<p>{selectedAntibiotics ? "True" : "False"}</p>
-	<p>{area_photo ? "True" : "False"}</p>
-	<p>{reference_photo ? "True" : "False"}</p>
-	<p>{submitConfirm ? "True" : "False"}</p>
--->
-
 </form>

@@ -2,6 +2,7 @@
 	import '../../app.postcss';
 	import { page } from '$app/stores';
     import { Icon } from 'flowbite-svelte-icons';
+    import { Button } from 'flowbite-svelte';
 	$: activeUrl = $page.url.pathname;
 
     let selected = 0;
@@ -31,6 +32,7 @@
     <img src="/faq/two.png" class="{selected == 2 ? "" : "hidden"} max-h-none max-w-none" alt="2. Our studio hours are 12 pm - 7 pm, Monday - Saturday. Keep in mind our artists don't have fixed work schedules so the studio might not always be open during these hours." height="600" width="600"/>
     <img src="/faq/three.png" class="{selected == 3 ? "" : "hidden"} relative -top-2 max-h-none max-w-none" alt="3. Our shop minimum is $60, so the price goes up from there. The cost of a tattoo can vary greatly depending on the size, style, the artist's skill set/experience, etc. therefore, price quotes can only be given after a consultation." height="600" width="600"/>
     <img src="/faq/four.png" class="{selected == 4 ? "" : "hidden"} max-h-none max-w-none" alt="4. See instructions below for aftercare instructions" height="600" width="600"/>
+    <Button href="https://drive.google.com/file/d/141pxEbyC0BzPPWAM-Ztwj0IB--i36hiv/view?usp=sharing" color="red" type="submit" class="{selected == 4 ? "" : "hidden"} absolute left-60 top-60 border-black">Attachment</Button>
     <img src="/faq/five.png" class="{selected == 5 ? "" : "hidden"} max-h-none max-w-none" alt="5. We do not do piercings at this time." height="600" width="600"/>
     <img src="/faq/six.png" class="{selected == 6 ? "" : "hidden"} max-h-none max-w-none" alt="6. We do not tattoo minors." height="600" width="600"/>
     <img src="/faq/seven.png" class="{selected == 7 ? "" : "hidden"} relative left-2 -top-5 max-h-none max-w-none" alt="7. Sure! We'll list out the general steps for our studio: 1. Fill out booking form, 2. We'll reach out for further information or to schedule an in-person consultation, 3. If you decide to proceed with your artist, we require a nonrefundable deposit when you schedule a date for your appointment. It will count towards the total cost of the tattoo, 4. On the day of the appointment, you'll fill out a consent form and we'll ask to check valid photo ID to verify your age, 5. Your artist will prep your skin by shaving and cleaning the area before applying a stencil, 6. Once you approve the size and placement of the stencil, your artist will wait for the stencil to dry before starting. Your artist will check in on you occasionally throughout the tattooing process but if at any point you need to stop, please notify the artist, we prioritize your wellbeing, 7. Once your tattoo is done, your artist will cover it with a transparent derm shield and go over aftercare, 9. You pay the remainder of the cost and leave with a new tattoo!" height="570" width="570"/>
