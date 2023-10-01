@@ -3,6 +3,9 @@
 	import { page } from '$app/stores';
 	$: activeUrl = $page.url.pathname;
 
+    //Instagram links lead to the instagrams
+    
+
     let selected = 0;
     function change(val: number)
     {
@@ -22,10 +25,10 @@
 <div class="absolute w-56 h-28 top-36 ml-80 left-[26em] bg-orange-400 rounded-lg max-96"></div>
 
 {#if selected === 0}
-    <iframe class="absolute left-[45.2em] top-[8.4em]" title="Tatted Ferret Location" width="240" height="220" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+    <iframe class="absolute left-[45.2em] top-[8.5em]" title="Tatted Ferret Location" width="240" height="120" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAkaBasDIjIOFgV-Rnu-kpfHQzCRD65uu8
         &q=10856 SW 104th St #126, Miami, FL 33176"></iframe>
-    <!--<img class="absolute w-56 h-24 top-64 ml-80 left-[26em] max-96" src="/contact/address.png" alt="10856 sw 104th st, suite 126, Miami, FL, 33176">-->
+    <img class="absolute w-56 h-24 top-64 ml-80 left-[26em] max-96" src="/contact/address.png" alt="10856 sw 104th st, suite 126, Miami, FL, 33176">
 {/if}
 
 {#if selected === 1}
