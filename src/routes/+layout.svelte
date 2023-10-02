@@ -15,12 +15,12 @@
 {#if activeUrl != "/"}
 <div class="flex flex-col transparent w-48 content-center mx-10">
 	<div class="absolute py-64 px-10 h-fit bg-orange-400 rounded-full left-24 top-14 -z-10"></div>
-  	<a href="/"><img src="../logo-transparent.png" alt="tatted ferret logo" width="200" height="200" class="-my-5"/></a>
+  	<a href="/"><img src="../logo-transparent.png" alt="tatted ferret logo" width="200" height="200" class="-my-5 select-none"/></a>
 	<!--Notably, flexbox is scoped so treat button as a container independent of the overall sidebar*/-->
-	<a href="/artists/tatterjae" class="flex justify-center {activeUrl == "/artists/tatterjae" || activeUrl == "/artists/carlosdotnet" || activeUrl == "/artists/domthekidtattoos" ? "relative left-10" : ""}"><img src="../artists.png" alt="artists" width="100" height="100"/></a>
-	<a href="/bookings" class="flex justify-center {activeUrl == "/bookings" ? "relative left-10" : ""}"><img src="../book.png" alt="bookings" width="100" height="100"/></a>
-	<a href="/faq" class="flex justify-center {activeUrl == "/faq" ? "relative left-10" : ""}"><img src="../faq.png" alt="frequently asked questions" width="100" height="100"/></a>
-	<a href="/contacts" class="flex justify-center {activeUrl == "/contacts" ? "relative left-10" : ""}"><img src="../contact.png" alt="contact" width="100" height="100"/></a>
+	<a href="/artists/tatterjae" class="flex justify-center {activeUrl == "/artists/tatterjae" || activeUrl == "/artists/carlosdotnet" || activeUrl == "/artists/domthekidtattoos" ? "relative left-10" : ""}"><img src="../artists.png" alt="artists" width="100" height="100" class="select-none"/></a>
+	<a href="/bookings" class="flex justify-center {activeUrl == "/bookings" ? "relative left-10" : ""}"><img src="../book.png" alt="bookings" width="100" height="100" class="select-none"/></a>
+	<a href="/faq" class="flex justify-center {activeUrl == "/faq" ? "relative left-10" : ""}"><img src="../faq.png" alt="frequently asked questions" width="100" height="100" class="select-none"/></a>
+	<a href="/contacts" class="flex justify-center {activeUrl == "/contacts" ? "relative left-10" : ""}"><img src="../contact.png" alt="contact" width="100" height="100" class="select-none"/></a>
 </div>
 {/if}
 	
