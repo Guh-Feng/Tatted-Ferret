@@ -22,7 +22,7 @@
 
 <img class="absolute left-96 -top-[3px] -z-10 max-h-none max-w-none select-none" height="647" width="647" src="../artists/instagram_purple.png" alt="instagram screen"/>
 
-<img class="absolute left-[41.5em] top-[10.6em] select-none" height="200" width="200" src="../artists/dom/dom{imageSelection}.png" alt="slideshow of tattoos">
+<a href="https://instagram.com/domthekid.tattoos?igshid=MmU2YjMzNjRlOQ==" target="_blank"><img class="absolute left-[41.5em] top-[10.6em] select-none" height="200" width="200" src="../artists/dom/dom{imageSelection}.png" alt="slideshow of tattoos"></a>
 <Icon name="arrow-left-outline" on:click={() => decrement()} class="absolute top-[30.2em] left-[36.6em] mx-20 w-8 h-8 text-purple-600" />
 <Icon name="arrow-right-outline" on:click={() => increment()} class="absolute top-[30.2em] left-[46.7em] mx-20 w-8 h-8 text-purple-600" />
 <p class="absolute top-[21.5em] left-[41.6em] select-none">

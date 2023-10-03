@@ -86,10 +86,10 @@
 	];
 
 	let artists = [
-		{ value: 'any', name: 'First Available/Any'},
-		{ value: 'jasper', name: 'Jasper (@tatterjae)' },
-		{ value: 'carlos', name: 'Carlos (@carlosdotnet)' },
-		{ value: 'dominic', name: 'Dominic (@domthekidtattoos)' }
+		{ value: 'Any', name: 'First Available/Any'},
+		{ value: 'Jasper', name: 'Jasper (@tatterjae)' },
+		{ value: 'Carlos', name: 'Carlos (@carlosdotnet)' },
+		{ value: 'Dominic', name: 'Dominic (@domthekidtattoos)' }
 	];
 
 	let newReturning = [
@@ -194,7 +194,7 @@
 <img class="absolute left-[24.5em] top-[17em] z-10" height="100" width="100" src="/booking/sparkles_rotated.png" alt="sparkles">
 
 <form class="absolute w-[28.4em] h-[21.4em] top-48 left-[30.5em] overflow-y-scroll" action={submitConfirm ? "https://formsubmit.co/guh.feng@gmail.com" : ""} enctype="multipart/form-data" method={submitConfirm ? "POST" : ""}>
-
+	<input type="hidden" name="_subject" value="Form - {selectedArtist}">
 	<Label for="small-input" class="block mb-2">Name <span class="text-red-600">*</span></Label>
 	<div class="flex w-full mb-4">	
 		<Input name="first" id="small-input first" size="sm" class="w-full ml-3 mr-1 {requiredAppear && !firstName ? "border-red-500 bg-red-200" : ""}" placeholder="First Name" bind:value={firstName} />

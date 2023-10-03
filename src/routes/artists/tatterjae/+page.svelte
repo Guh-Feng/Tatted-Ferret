@@ -23,7 +23,7 @@
 
 <img class="absolute left-96 -top-[4px] -z-10 max-h-none max-w-none select-none" height="647" width="647" src="../artists/instagram_orange.png" alt="instagram screen"/>
 
-<img class="absolute left-[41.5em] top-[10.6em] select-none" height="200" width="200" src="../artists/jae/jae{imageSelection}.png" alt="slideshow of tattoos">
+<a href="https://instagram.com/tatterjae?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"><img class="absolute left-[41.5em] top-[10.6em] select-none" height="200" width="200" src="../artists/jae/jae{imageSelection}.png" alt="slideshow of tattoos"></a>
 <Icon name="arrow-left-outline" on:click={() => decrement()} class="absolute top-[30.2em] left-[36.6em] mx-20 w-8 h-8 text-orange-600" />
 <Icon name="arrow-right-outline" on:click={() => increment()} class="absolute top-[30.2em] left-[46.7em] mx-20 w-8 h-8 text-orange-600" />
 <p class="absolute top-[21.5em] left-[41.6em] select-none">

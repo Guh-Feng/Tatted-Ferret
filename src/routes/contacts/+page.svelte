@@ -47,5 +47,3 @@
     <img class="absolute w-56 top-40 mt-1 ml-80 left-[26em] max-96" src="/contact/instagram.png" alt="studio number: 3057074246">
     <img class="absolute w-56 h-24 top-64 ml-80 left-[26em] max-96" src="/contact/instas.png" alt="For tattoo requests, please fill out our booking form">
 {/if}
-
-
