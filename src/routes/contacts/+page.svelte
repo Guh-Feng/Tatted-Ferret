@@ -4,7 +4,7 @@
 	$: activeUrl = $page.url.pathname;
 
     //Instagram links lead to the instagrams
-    
+    //Add font to convert images to selectable text
 
     let selected = 0;
     function change(val: number)

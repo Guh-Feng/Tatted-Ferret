@@ -4,12 +4,11 @@
 	$: activeUrl = $page.url.pathname;
 </script>
 
-<div class="flex-col w-fit mx-auto">
-    <img class="-my-20" src="logo-transparent.png" alt="Tatted Ferret Logo" height="550" width="550">
-</div>
-<div class="flex justify-evenly mt-8 mx-40">
-    <a href="/artists/tatterjae" class="flex justify-center"><img src="artists.png" alt="artists" width="150" height="150"/></a>
-    <a href="/bookings" class="flex justify-center"><img src="book.png" alt="bookings" width="150" height="150"/></a>
-    <a href="/faq" class="flex justify-center"><img src="faq.png" alt="frequently asked questions" width="150" height="150"/></a>
-    <a href="/contacts" class="flex justify-center"><img src="contact.png" alt="contact" width="150" height="150"/></a>
+<img class="w-fit mx-auto lg:w-7/12 lg: p-5" src="logo-transparent.png" alt="Tatted Ferret Logo">
+
+<div class="mx-auto grid grid-cols-2 gap-y-2 justify-center lg:justify-items-center lg:absolute lg:top-0 lg:grid-cols-4">
+    <a href="/artists/tatterjae" class="lg:mr-auto lg:w-10/12 lg:col-start-1 lg:col-span-1"><img src="artists.png" alt="artists"/></a>
+    <a href="/bookings" class="lg:ml-auto lg:w-10/12 lg:col-start-4 lg:col-span-1"><img src="book.png" alt="bookings"/></a>
+    <a href="/faq" class="lg:mr-auto lg:w-10/12 lg:col-start-1 lg:col-span-1"><img src="faq.png" alt="frequently asked questions"/></a>
+    <a href="/contacts" class="lg:ml-auto lg:w-10/12 lg:col-start-4 lg:col-span-1"><img src="contact.png" alt="contact"/></a>
 </div>
