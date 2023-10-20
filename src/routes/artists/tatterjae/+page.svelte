@@ -22,7 +22,6 @@
 	}
 </script>
 
-
 <img class="absolute flex flex-col lg:hidden top-[20.5vw] w-[100%] h-auto -z-10 select-none" src="../artists/mobile_tatterjae.png" alt="instagram screen"/>
 <img class="absolute hidden lg:flex lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] lg:max-h-none lg:max-w-none -z-10 select-none" src="../artists/tatterjae.png" alt="instagram screen"/>
 
@@ -52,4 +51,3 @@
 	<a class="relative lg:top-[40%] lg:right-[77%] lg:w-[20%] lg:h-[17%]" href="/artists/domthekidtattoos"><Icon name="arrow-left-outline" class="relative hidden lg:flex lg:w-[100%] lg:h-[100%] text-white" /></a>
 	<a class="relative lg:top-[40%] lg:left-[21%] lg:w-[20%] lg:h-[17%]" href="/artists/carlosdotnet"><Icon name="arrow-right-outline" class="relative hidden lg:flex lg:w-[100%] lg:h-[100%] text-white" /></a>
 </div>
-
