@@ -29,9 +29,9 @@
 		<a href="/" class="lg:flex hidden w-[33vh]"><img src="../logo-transparent.png" alt="tatted ferret logo" class="select-none"/></a>
 		<div class="mx-auto grid grid-cols-2 gap-y-2 align-middle z-10 lg:grid-cols-1 bg-orange-400 lg:bg-transparent">
 			<a href="/artists/tatterjae" class="w-[47.6vw] {activeUrl == "/artists/tatterjae" || activeUrl == "/artists/carlosdotnet" || activeUrl == "/artists/domthekidtattoos" ? "relative lg:left-10" : ""} lg:w-[17vh] "><img src="../artists.png" alt="artists" class="select-none"/></a>
-			<a href="/bookings" class="{activeUrl == "/bookings" ? "relative left-10" : ""} lg:w-[17vh] "><img src="../book.png" alt="bookings" class="select-none"/></a>
-			<a href="/faq" class="w-[47.6vw] {activeUrl == "/faq" ? "relative left-10" : ""} lg:w-[17vh] "><img src="../faq.png" alt="frequently asked questions" class="select-none"/></a>
-			<a href="/contacts" class="relative bottom-[4.5vw] {activeUrl == "/contacts" ? "left-10" : ""} lg:w-[17vh] lg:bottom-0"><img src="../contact.png" alt="contact" class="select-none"/></a>
+			<a href="/bookings" class="{activeUrl == "/bookings" ? "relative lg:left-10" : ""} lg:w-[17vh] "><img src="../book.png" alt="bookings" class="select-none"/></a>
+			<a href="/faq" class="w-[47.6vw] {activeUrl == "/faq" ? "relative lg:left-10" : ""} lg:w-[17vh] "><img src="../faq.png" alt="frequently asked questions" class="select-none"/></a>
+			<a href="/contacts" class="relative bottom-[4.5vw] {activeUrl == "/contacts" ? "lg:left-10" : ""} lg:w-[17vh] lg:bottom-0"><img src="../contact.png" alt="contact" class="select-none"/></a>
 		</div>
 	</div>
 </div>
