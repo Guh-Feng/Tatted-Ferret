@@ -1,2 +1,2 @@
-<p>Hello</p>
+<p></p>
 <!--Make this autoredirect to tatterjae-->

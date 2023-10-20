@@ -19,7 +19,7 @@
 	}
 </script>
 
-<a href="https://instagram.com/carlosdotnet?igshid=MmU2YjMzNjRlOQ==" target="_blank"><img class="absolute left-96 top-0 -z-10 max-h-none max-w-none select-none" height="647" width="647" src="../artists/instagram_red.png" alt="instagram screen"/></a>
+<a href="https://instagram.com/carlosdotnet?igshid=MmU2YjMzNjRlOQ==" target="_blank"><img class="absolute left-96 top-0 -z-10 max-h-none max-w-none select-none" height="647" width="647" src="../artists/carlosdotnet.png" alt="instagram screen"/></a>
 
 <img class="absolute left-[41.5em] top-[10.6em] select-none" height="200" width="200" src="../artists/carlos/carlos{imageSelection}.png" alt="slideshow of tattoos">
 <Icon name="arrow-left-outline" on:click={() => decrement()} class="absolute top-[30.2em] left-[36.6em] mx-20 w-8 h-8 text-orange-600" />

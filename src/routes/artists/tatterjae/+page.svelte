@@ -6,6 +6,7 @@
 
 	let imageSelection = 1;
 	//Standardize image ratio of 1 in height to 0.8 in width, variable alts
+	//Percentage is based on the element's container, viewport lengths are always based on the entire screen
 
 	function increment()
 	{
@@ -21,23 +22,34 @@
 	}
 </script>
 
-<img class="absolute left-96 -top-[4px] -z-10 max-h-none max-w-none select-none" height="647" width="647" src="../artists/instagram_orange.png" alt="instagram screen"/>
 
-<a href="https://instagram.com/tatterjae?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"><img class="absolute left-[41.5em] top-[10.6em] select-none" height="200" width="200" src="../artists/jae/jae{imageSelection}.png" alt="slideshow of tattoos"></a>
-<Icon name="arrow-left-outline" on:click={() => decrement()} class="absolute top-[30.2em] left-[36.6em] mx-20 w-8 h-8 text-orange-600" />
-<Icon name="arrow-right-outline" on:click={() => increment()} class="absolute top-[30.2em] left-[46.7em] mx-20 w-8 h-8 text-orange-600" />
-<p class="absolute top-[21.5em] left-[41.6em] select-none">
-	<span class="{imageSelection == 1 ? "text-black" : "text-white"} text-7xl select-none">.</span>
-	<span class="{imageSelection == 2 ? "text-black" : "text-white"} text-7xl select-none">.</span>
-	<span class="{imageSelection == 3 ? "text-black" : "text-white"} text-7xl select-none">.</span>
-	<span class="{imageSelection == 4 ? "text-black" : "text-white"} text-7xl select-none">.</span>
-	<span class="{imageSelection == 5 ? "text-black" : "text-white"} text-7xl select-none">.</span>
-	<span class="{imageSelection == 6 ? "text-black" : "text-white"} text-7xl select-none">.</span>
-	<span class="{imageSelection == 7 ? "text-black" : "text-white"} text-7xl select-none">.</span>
-	<span class="{imageSelection == 8 ? "text-black" : "text-white"} text-7xl select-none">.</span>
-	<span class="{imageSelection == 9 ? "text-black" : "text-white"} text-7xl select-none">.</span>
-	<span class="{imageSelection == 10 ? "text-black" : "text-white"} text-7xl select-none">.</span>
-</p>
+<img class="absolute flex flex-col lg:hidden top-[20.5vw] w-[100%] h-auto -z-10 select-none" src="../artists/mobile_tatterjae.png" alt="instagram screen"/>
+<img class="absolute hidden lg:flex lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] lg:max-h-none lg:max-w-none -z-10 select-none" src="../artists/tatterjae.png" alt="instagram screen"/>
 
-<a href="/artists/domthekidtattoos"><Icon name="arrow-left-outline" class="absolute top-60 mt-4 left-52 mx-20 w-20 h-20 text-white" /></a>
-<a href="/artists/carlosdotnet"><Icon name="arrow-right-outline" class="absolute top-60 mt-4 left-[42rem] ml-96 w-20 h-20 text-white" /></a>
+<div class="flex lg:hidden">
+	<a class="mx-auto" href="/artists/domthekidtattoos"><Icon name="arrow-left-outline" class="h-[20vw] w-auto text-white" /></a>
+	<a class="mx-auto" href="/artists/carlosdotnet"><Icon name="arrow-right-outline" class="h-[20vw] w-auto text-white" /></a>
+</div>
+
+<div class="relative flex flex-col w-[100%] h-[138vw] max-h-none max-w-none lg:flex-row lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] select-none">
+
+	<a class="relative h-auto w-[54.1%] top-[27%] left-[22.7%] lg:h-[42%] lg:w-auto lg:left-[42.3%] lg:top-[27.7%]" href="https://instagram.com/tatterjae?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"><img class="relative -z-10 h-[100%] w-[100%] select-none" src="../artists/jae/jae{imageSelection}.png" alt="slideshow of tattoos"></a>
+
+	<Icon name="arrow-left-outline" on:click={() => decrement()} class="relative max-h-none w-[9%] h-auto top-[41.5%] left-[25.4%] lg:top-[85.2%] lg:left-[10.8%] lg:h-[5%] lg:w-auto text-orange-600" />
+	<Icon name="arrow-right-outline" on:click={() => increment()} class="relative max-w-none w-[9%] h-auto top-[36.4%] left-[65%] lg:top-[85.2%] lg:left-[30.5%] lg:h-[5%] lg:w-auto text-orange-600" />
+
+	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[17.8%] left-[23%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:right-[0.3%] lg:left-[0%] {imageSelection == 1 ? "bg-black" : "bg-white"}"></div>
+	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[16.4%] left-[28.7%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:left-[1.5%] {imageSelection == 2 ? "bg-black" : "bg-white"}"></div>
+	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[15%] left-[34.4%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:left-[3.3%] {imageSelection == 3 ? "bg-black" : "bg-white"}"></div>
+	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[13.6%] left-[40.1%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:left-[5.1%] {imageSelection == 4 ? "bg-black" : "bg-white"}"></div>
+	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[12.2%] left-[45.8%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:left-[6.9%] {imageSelection == 5 ? "bg-black" : "bg-white"}"></div>
+	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[10.8%] left-[51.5%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:left-[8.7%] {imageSelection == 6 ? "bg-black" : "bg-white"}"></div>
+	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[9.4%] left-[57.2%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:left-[10.5%] {imageSelection == 7 ? "bg-black" : "bg-white"}"></div>
+	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[8%] left-[62.9%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:left-[12.3%] {imageSelection == 8 ? "bg-black" : "bg-white"}"></div>
+	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[6.6%] left-[68.6%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:left-[14.1%] {imageSelection == 9 ? "bg-black" : "bg-white"}"></div>
+	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[5.2%] left-[74.3%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:left-[15.9%] {imageSelection == 10 ? "bg-black" : "bg-white"}"></div>
+
+	<a class="relative lg:top-[40%] lg:right-[77%] lg:w-[20%] lg:h-[17%]" href="/artists/domthekidtattoos"><Icon name="arrow-left-outline" class="relative hidden lg:flex lg:w-[100%] lg:h-[100%] text-white" /></a>
+	<a class="relative lg:top-[40%] lg:left-[21%] lg:w-[20%] lg:h-[17%]" href="/artists/carlosdotnet"><Icon name="arrow-right-outline" class="relative hidden lg:flex lg:w-[100%] lg:h-[100%] text-white" /></a>
+</div>
+
