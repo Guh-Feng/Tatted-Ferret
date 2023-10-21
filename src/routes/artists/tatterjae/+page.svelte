@@ -32,7 +32,7 @@
 
 <div class="relative flex flex-col w-[100%] h-[138vw] max-h-none max-w-none lg:flex-row lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] select-none">
 
-	<a class="relative h-auto w-[54.1%] top-[27%] left-[22.7%] lg:h-[42%] lg:w-auto lg:left-[42.3%] lg:top-[27.7%]" href="https://instagram.com/tatterjae?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"><img class="relative -z-10 h-[100%] w-[100%] select-none" src="../artists/jae/jae{imageSelection}.png" alt="slideshow of tattoos"></a>
+	<a class="relative h-auto w-[54.1%] top-[27%] left-[22.7%] lg:h-[42%] lg:w-auto lg:left-[42.3%] lg:top-[27.7%]" href="https://www.instagram.com/tatterjae" target="_blank"><img class="relative h-[100%] w-[100%] select-none" src="../artists/jae/jae{imageSelection}.png" alt="slideshow of tattoos"></a>
 
 	<Icon name="arrow-left-outline" on:click={() => decrement()} class="relative max-h-none w-[9%] h-auto top-[41.5%] left-[25.4%] lg:top-[85.2%] lg:left-[10.8%] lg:h-[5%] lg:w-auto text-orange-600" />
 	<Icon name="arrow-right-outline" on:click={() => increment()} class="relative max-w-none w-[9%] h-auto top-[36.4%] left-[65%] lg:top-[85.2%] lg:left-[30.5%] lg:h-[5%] lg:w-auto text-orange-600" />

@@ -4,6 +4,9 @@
 	import { Icon } from 'flowbite-svelte-icons';
 	$: activeUrl = $page.url.pathname;
 
+	//Can click through the background to the instagram page
+	//Accessibility, form, optimization, and background pass
+
 	let openMenu = false;
 	function displayMenu()
 	{
@@ -20,7 +23,7 @@
 </style>
 
 {#if activeUrl != "/"}
-<div class='flex flex-col absolute lg:flex-col lg:top-0 {openMenu ? "bg-orange-400" : "w-0"}'>
+<div class='flex flex-col z-30 absolute lg:flex-col lg:top-0 {openMenu ? "bg-orange-400" : "w-0"}'>
 	<button class="flex w-[20vw] mx-[40vw] mt-[1.5vw] py-[3vw] border-4 border-orange-600 rounded-lg lg:hidden" on:click={() => displayMenu()}>
 		<Icon name="{openMenu ? "close-outline" : "bars-outline" }" class="mx-auto w-[10vw] h-[10vw] text-orange-600" />
 	</button>
