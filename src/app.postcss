@@ -1,4 +1,16 @@
 /* Write your global styles here, in PostCSS syntax */
+/* Remember that format() is option and to write format("truetype"), not format("ttf") */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+		font-family: 'Lickorishe';
+		src: url('./fonts/KingthingsLickorishe.ttf') format("truetype");
+        font-style: normal;
+		font-weight: normal;
+		font-display: swap;
+	}
+}

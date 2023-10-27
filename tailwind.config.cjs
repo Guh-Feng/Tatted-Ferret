@@ -7,6 +7,9 @@ const config = {
   
 	theme: {
 	  extend: {
+		fontFamily: {
+			lickorishe: ['Lickorishe']
+		},
 		colors: {
 		  // flowbite-svelte
 		  primary: {
