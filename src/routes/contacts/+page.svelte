@@ -50,7 +50,7 @@
         <p class="relative top-[19.7%] w-[60%] left-[35.5%] text-[4.6vw]/[5.5vw] lg:top-[25%] lg:w-[30%] lg:left-[43%] lg:text-[3vh]/[4vh] font-lickorishe text-white text-center">
             Studio Email<br>tattedferret@gmail.com<br>Owner Email<br>jasperg262@gmail.com
         </p>
-        <p class="relative top-[24.6%] w-[60%] left-[36%] text-[5.7vw]/[5.7vw] lg:w-[30%] lg:top-[35%] lg:left-[43%] lg:text-[3.5vh]/[4vh] font-lickorishe text-orange-600 text-center">
+        <p class="relative top-[24.6%] w-[60%] left-[36%] text-[5.7vw]/[5.7vw] lg:w-[30%] lg:top-[29%] lg:left-[43%] lg:text-[3.5vh]/[4vh] font-lickorishe text-orange-600 text-center">
             For tattoo requests,<br>please fill out our<br>booking form.
         </p>
     {/if}
