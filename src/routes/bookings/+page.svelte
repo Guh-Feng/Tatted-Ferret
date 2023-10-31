@@ -215,7 +215,7 @@
 		</div>
 
 		{#if dateOfBirth != undefined && !ageConfirm}
-		<p class="text-red-600 -mt-4">Must be 18 or older to book.</p>
+			<p class="text-red-600 -mt-4">Must be 18 or older to book.</p>
 		{/if}
 
 		<Label for="small-input" class="block mb-2">Pronouns</Label>
