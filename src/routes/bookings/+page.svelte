@@ -187,6 +187,11 @@
 			submitConfirm = true;
 		requiredAppear = true;
 	}
+
+	function beforeunload(event: BeforeUnloadEvent) {
+        event.preventDefault();
+        return event.returnValue = '';
+    }
 </script>
 
 <img class="absolute -z-10 hidden lg:flex lg:left-[27vw] lg:w-[110vh] lg:max-h-none lg:max-w-none" src="/booking/booking.png" alt="contacts-screen"/>
@@ -347,3 +352,5 @@
 		<Button on:click={settingValidity} color="red" type="submit" class="relative my-4 mx-[6%] w-40">Submit</Button>
 	</form>
 </div>
+
+<svelte:window on:beforeunload={beforeunload}/>

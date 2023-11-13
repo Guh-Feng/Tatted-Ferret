@@ -58,7 +58,7 @@
     <div class="absolute w-[60%] mt-[20.5%] ml-[21%] flex flex-col">
         <p class="font-lickorishe text-[4vw]/[5vw] lg:text-[3.5vh]/[4.96vh] text-orange-600 select-none relative text-left">4. See instructions below for aftercare instructions.</p>
     </div>
-    <Button href="https://drive.google.com/file/d/141pxEbyC0BzPPWAM-Ztwj0IB--i36hiv/view?usp=sharing" color="red" type="submit" class="text-[5vw]/[3.8vw] lg:text-[4.2vh]/[3.8vh] absolute left-[36%] top-[64%] w-[30%] h-[15%]">Attachment</Button>
+    <Button href="https://drive.google.com/file/d/141pxEbyC0BzPPWAM-Ztwj0IB--i36hiv/view?usp=sharing" target="_blank" color="red" type="submit" class="text-[5vw]/[3.8vw] lg:text-[4.2vh]/[3.8vh] absolute left-[36%] top-[64%] w-[30%] h-[15%]">Attachment</Button>
     <img src="/faq/small_answer.png" alt="small answer background" class="w-[100%] max-w-none max-h-none">
 </button>
 
@@ -83,7 +83,7 @@
     <div class="absolute w-[60%] mt-[20.5%] ml-[21%] flex flex-col">
         <p class="font-lickorishe text-[4vw]/[5vw] lg:text-[3.5vh]/[4.96vh] text-orange-600 select-none relative text-left">7. See instructions below for our studio process.</p>
     </div>
-    <Button href="https://drive.google.com/file/d/1gYpqS_WbpQNxplEW4eaDrpHODULh9u9m/view?usp=sharing" color="red" type="submit" class="text-[5vw]/[3.8vw] lg:text-[4.2vh]/[3.8vh] absolute left-[36%] top-[64%] w-[30%] h-[15%]">Attachment</Button>
+    <Button href="https://drive.google.com/file/d/1gYpqS_WbpQNxplEW4eaDrpHODULh9u9m/view?usp=sharing" target="_blank" color="red" type="submit" class="text-[5vw]/[3.8vw] lg:text-[4.2vh]/[3.8vh] absolute left-[36%] top-[64%] w-[30%] h-[15%]">Attachment</Button>
     <img src="/faq/small_answer.png" alt="small answer background" class="w-[100%] max-w-none max-h-none">
 </button>
 
