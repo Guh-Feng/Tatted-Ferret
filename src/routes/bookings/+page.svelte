@@ -75,6 +75,7 @@
 	let selectedCoverup : string;
 	let selectedScarring : string;
 	let allergies : string;
+	let eventCode : string;
 	let selectedAntibiotics : string;
 
 	let area_photo : FileList;
@@ -125,6 +126,14 @@
 	let textAreaPropsAllergies = {
 		id: 'message',
 		name: 'allergies',
+		label: 'Your message',
+		rows: 1,
+		placeholder: ''
+	};
+
+	let textAreaPropsEvents = {
+		id: 'message',
+		name: 'event_code',
 		label: 'Your message',
 		rows: 1,
 		placeholder: ''
@@ -320,6 +329,11 @@
 		<Label class="mb-3">
 			Allergies or Skin Conditions?
 			<Textarea class="mt-2 mx-3 w-11/12" {...textAreaPropsAllergies} bind:value={allergies} />
+		</Label>
+
+		<Label class="mb-4">
+			Event Code
+			<Textarea class="mt-2 mx-3 w-11/12" {...textAreaPropsEvents} bind:value={eventCode} />
 		</Label>
 
 		<Label class="mb-4">
