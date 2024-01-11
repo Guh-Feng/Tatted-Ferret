@@ -31,7 +31,7 @@
     {#if selected === 0}
         <iframe class="relative left-[35%] top-[17.5%] w-[61%] h-[22%] lg:left-[44%] lg:top-[23.5%] lg:w-[28%] lg:h-[21%]" title="Tatted Ferret Location" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAkaBasDIjIOFgV-Rnu-kpfHQzCRD65uu8
-            &q=10856 SW 104th St #126, Miami, FL 33176"></iframe>
+            &q=Tatted Ferret Tattoo Studio"></iframe>
         <p class="relative top-[20%] w-[60%] left-[36%] text-[6vw]/[6vw] lg:top-[25%] lg:w-[30%] lg:left-[43%] lg:text-[4.4vh]/[5vh] font-lickorishe text-orange-600 text-center">
             10856 SW 104th St<br>Suite 126<br>Miami, Fl, 33176
         </p>
