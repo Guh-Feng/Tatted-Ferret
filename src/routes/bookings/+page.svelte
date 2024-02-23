@@ -1,15 +1,15 @@
 <script lang="ts">
 	import '../../app.postcss';
 	import { page } from '$app/stores';
-	import { Label, Input, Button, Dropdown, DropdownItem, Select, Checkbox, Textarea, Fileupload, Card } from 'flowbite-svelte';
-	import { Icon } from 'flowbite-svelte-icons';
+	import { Label, Input, Button, Select, Checkbox, Textarea, Fileupload } from 'flowbite-svelte';
+	import { onMount } from 'svelte';
 	$: activeUrl = $page.url.pathname;
 
 	// 18th birthday tattoos?
 	// Upload/loading for image inconsistently uploading
 
 	//Value bindings
-	let firstName : string;
+	let firstName : string; //Creates strange bug in not loading in page elements. Probably has to be moved to inside the HTML
 	let lastName : string;
 
 	let dateOfBirth : string;
@@ -22,6 +22,48 @@
 	let selectedSilent : string;
 	let selectedArtist : string;
 	let ageConfirm = false;
+
+	onMount(() => {
+		firstName = sessionStorage.getItem("firstName") || "";
+		lastName = sessionStorage.getItem("lastName") || "";
+		dateOfBirth = sessionStorage.getItem("dateOfBirth") || "";
+		underageCheck();
+		pronouns = sessionStorage.getItem("pronouns") || "";
+		email = sessionStorage.getItem("email") || "";
+		insta = sessionStorage.getItem("insta") || "";
+		phone = sessionStorage.getItem("phone") || "";
+
+		selectedNewReturning = sessionStorage.getItem("selectedNewReturning") || "";
+		selectedSilent = sessionStorage.getItem("selectedSilent") || "";
+		selectedArtist = sessionStorage.getItem("selectedArtist") || "";
+
+		available_time.early = JSON.parse(sessionStorage.getItem("early") || "false");
+		available_time.late = JSON.parse(sessionStorage.getItem("late") || "false");
+
+		available_days.monday = JSON.parse(sessionStorage.getItem("monday") || "false");
+		available_days.tuesday = JSON.parse(sessionStorage.getItem("tuesday") || "false");
+		available_days.wednesday = JSON.parse(sessionStorage.getItem("wednesday") || "false");
+		available_days.thursday = JSON.parse(sessionStorage.getItem("thursday") || "false");
+		available_days.friday = JSON.parse(sessionStorage.getItem("friday") || "false");
+		available_days.saturday = JSON.parse(sessionStorage.getItem("saturday") || "false");
+		available_days.sunday = JSON.parse(sessionStorage.getItem("sunday") || "false");
+
+		tattoo_style.color = JSON.parse(sessionStorage.getItem("color") || "false");
+		tattoo_style.black_and_grey = JSON.parse(sessionStorage.getItem("black_and_grey") || "false");
+		tattoo_style.fine_line = JSON.parse(sessionStorage.getItem("fine_line") || "false");
+		tattoo_style.other = JSON.parse(sessionStorage.getItem("other") || "false");
+
+		tattoo_design = sessionStorage.getItem("tattoo_design") || "";
+		tattoo_size = sessionStorage.getItem("tattoo_size") || "";
+		
+		selectedExistingTattoos = sessionStorage.getItem("selectedExistingTattoos") || "";
+		selectedCoverup = sessionStorage.getItem("selectedCoverup") || "";
+		selectedScarring = sessionStorage.getItem("selectedScarring") || "";
+
+		allergies = sessionStorage.getItem("allergies") || "";
+		eventCode = sessionStorage.getItem("eventCode") || "";
+		selectedAntibiotics = sessionStorage.getItem("selectedAntibiotics") || "";
+	})
 
 	function birthdayValid()
 	{
@@ -197,10 +239,20 @@
 		requiredAppear = true;
 	}
 
-	function beforeunload(event: BeforeUnloadEvent) {
-        event.preventDefault();
-        return event.returnValue = '';
-    }
+	//Add beforeunload that is disabled when executed by submit button
+	// function beforeunload(event: BeforeUnloadEvent) {
+    //     event.preventDefault();
+    //     return event.returnValue = '';
+    // }
+
+	function saveSessionStorage(field : string, e : Event){
+		sessionStorage.setItem(field, (e.target as HTMLInputElement).value);
+		// https://freshman.tech/snippets/typescript/fix-value-not-exist-eventtarget/
+	}
+
+	function saveCheckboxStorage(field : string, e : Event){
+		sessionStorage.setItem(field, JSON.stringify((e.target as HTMLInputElement).checked));
+	}
 </script>
 
 <img class="absolute -z-10 hidden lg:flex lg:left-[27vw] lg:w-[110vh] lg:max-h-none lg:max-w-none" src="/booking/booking.png" alt="contacts-screen"/>
@@ -219,13 +271,13 @@
 		<input type="hidden" name="_subject" value="Form - {selectedArtist}">
 		<Label for="small-input" class="block mb-2">Name <span class="text-red-600">*</span></Label>
 		<div class="flex w-full mb-4">	
-			<Input name="first" id="small-input first" size="sm" class="w-full ml-3 mr-1 {requiredAppear && !firstName ? "border-red-500 bg-red-200" : ""}" placeholder="First Name" bind:value={firstName} />
-			<Input name="last" id="small-input last" size="sm" class="w-full mr-3 ml-1 {requiredAppear && !lastName ? "border-red-500 bg-red-200" : ""}" placeholder="Last Name" bind:value={lastName} />
+			<Input name="first" id="small-input first" size="sm" class="w-full ml-3 mr-1 {requiredAppear && !firstName ? "border-red-500 bg-red-200" : ""}" placeholder="First Name" bind:value={firstName} on:input={(e) => saveSessionStorage("firstName", e)} />
+			<Input name="last" id="small-input last" size="sm" class="w-full mr-3 ml-1 {requiredAppear && !lastName ? "border-red-500 bg-red-200" : ""}" placeholder="Last Name" bind:value={lastName} on:input={(e) => saveSessionStorage("lastName", e)} />
 		</div>
 
 		<Label for="small-input" class="block mb-2">Date of Birth <span class="text-red-600">*</span></Label>
 		<div class="flex w-full mb-4">
-			<Input id="DOB" name="DOB"  type="date" class="h-10 w-32 mx-3 {requiredAppear && !dateOfBirth ? "border-red-500 bg-red-200" : ""}" bind:value={dateOfBirth} on:input={underageCheck}/>
+			<Input id="DOB" name="DOB"  type="date" class="h-10 w-32 mx-3 {requiredAppear && !dateOfBirth ? "border-red-500 bg-red-200" : ""}" bind:value={dateOfBirth} on:input={(e) => {underageCheck(); saveSessionStorage("dateOfBirth", e);}} />
 		</div>
 
 		{#if dateOfBirth != undefined && !ageConfirm}
@@ -234,111 +286,111 @@
 
 		<Label for="small-input" class="block mb-2">Pronouns</Label>
 		<div class="flex w-full mb-4">	
-			<Input name="pronouns" id="small-input" size="sm" class="w-full mx-3" placeholder="" bind:value={pronouns}/>
+			<Input name="pronouns" id="small-input" size="sm" class="w-full mx-3" placeholder="" bind:value={pronouns} on:input={(e) => saveSessionStorage("pronouns", e)}/>
 		</div>
 
 		<Label for="small-input" class="block mb-2">Email <span class="text-red-600">*</span></Label>
 		<div class="flex w-full mb-4">
-			<Input name="email" type="email" id="small-input" size="sm" class="w-full mx-3 {requiredAppear && !email ? "border-red-500 bg-red-200" : ""}" placeholder="example@example.com" bind:value={email}/>
+			<Input name="email" type="email" id="small-input" size="sm" class="w-full mx-3 {requiredAppear && !email ? "border-red-500 bg-red-200" : ""}" placeholder="example@example.com" bind:value={email} on:input={(e) => saveSessionStorage("email", e)} />
 		</div>
 
 		<Label for="small-input" class="block mb-2">Instagram Handle</Label>
 		<div class="flex w-full mb-4">
-			<Input name="instagram_handle" id="small-input" size="sm" class="w-full mx-3" placeholder="" bind:value={insta}/>
+			<Input name="instagram_handle" id="small-input" size="sm" class="w-full mx-3" placeholder="" bind:value={insta} on:input={(e) => saveSessionStorage("insta", e)}/>
 		</div>
 
 		<Label for="small-input" class="block mb-2">Phone Number <span class="text-red-600">*</span></Label>
 		<div class="flex w-full mb-4">	
-			<Input name="phone" type="tel" id="small-input" size="sm" class="w-full mx-3 {requiredAppear && !phone ? "border-red-500 bg-red-200" : ""}" placeholder="" bind:value={phone}/>
+			<Input name="phone" type="tel" id="small-input" size="sm" class="w-full mx-3 {requiredAppear && !phone ? "border-red-500 bg-red-200" : ""}" placeholder="" bind:value={phone} on:input={(e) => saveSessionStorage("phone", e)} />
 		</div>
 
 		<Label class="mb-4">
 			New or Returning Client: <span class="text-red-600">*</span>
-			<Select name="returning_client" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedNewReturning ? "border-red-500 bg-red-200" : ""}" items={newReturning} bind:value={selectedNewReturning}  />
+			<Select name="returning_client" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedNewReturning ? "border-red-500 bg-red-200" : ""}" items={newReturning} bind:value={selectedNewReturning} on:change={(e) => saveSessionStorage("selectedNewReturning", e)} />
 		</Label>
 
 		<Label class="mb-4">
 			Do you want a "silent" appointment?
-			<Select name="silent_appointment" class="mt-2 mx-3 w-6/12" items={yesNo} bind:value={selectedSilent} />
+			<Select name="silent_appointment" class="mt-2 mx-3 w-6/12" items={yesNo} bind:value={selectedSilent} on:change={(e) => saveSessionStorage("selectedSilent", e)} />
 			<p class="text-xs mx-3">Regardless of the reason, you are welcome to use this option and only necessary conversations will be had, such as placement or color choices.</p>
 		</Label>
 		
 		<Label class="mb-4">
 			Preferred Artist: <span class="text-red-600">*</span>
-			<Select name="preferred_artist" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedArtist ? "border-red-500 bg-red-200" : ""}" items={artists} bind:value={selectedArtist}  />
+			<Select name="preferred_artist" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedArtist ? "border-red-500 bg-red-200" : ""}" items={artists} bind:value={selectedArtist} on:change={(e) => saveSessionStorage("selectedArtist", e)} />
 		</Label>
 
 		<Label class="mb-4 {requiredAppear && !available_time.early && !available_time.late ? "bg-red-200" : ""}" >
 			Availability: <span class="text-red-600">*</span>
-				<Checkbox name="early" class="my-2 ml-2" bind:checked={available_time.early}>11:30 am - 3:00 pm</Checkbox>
-				<Checkbox name="late" class="ml-2" bind:checked={available_time.late}>3:30 pm - 7:00 pm</Checkbox>
+				<Checkbox name="early" class="my-2 ml-2" bind:checked={available_time.early} on:change={(e) => saveCheckboxStorage("early", e)}>11:30 am - 3:00 pm</Checkbox>
+				<Checkbox name="late" class="ml-2" bind:checked={available_time.late} on:change={(e) => saveCheckboxStorage("late", e)}>3:30 pm - 7:00 pm</Checkbox>
 		</Label>
 
 		<Label class="mb-4 {requiredAppear && !available_days.monday && !available_days.tuesday && !available_days.wednesday && !available_days.thursday && !available_days.friday && !available_days.saturday && !available_days.sunday ? "bg-red-200" : ""}">
 			Availability - please select ALL days of the week that apply. Please keep in mind that not all artists work all of these days, but some are flexible: <span class="text-red-600">*</span>
-			<Checkbox name="monday" class="my-2 ml-2" bind:checked={available_days.monday}>Monday</Checkbox>
-			<Checkbox name="tuesday" class="my-2 ml-2" bind:checked={available_days.tuesday}>Tuesday</Checkbox>
-			<Checkbox name="wednesday" class="my-2 ml-2" bind:checked={available_days.wednesday}>Wednesday</Checkbox>
-			<Checkbox name="thursday" class="my-2 ml-2" bind:checked={available_days.thursday}>Thursday</Checkbox>
-			<Checkbox name="friday" class="my-2 ml-2" bind:checked={available_days.friday}>Friday</Checkbox>
-			<Checkbox name="saturday" class="my-2 ml-2" bind:checked={available_days.saturday}>Saturday</Checkbox>
-			<Checkbox name="sunday" class="ml-2" bind:checked={available_days.sunday}>Sunday</Checkbox>
+			<Checkbox name="monday" class="my-2 ml-2" bind:checked={available_days.monday} on:change={(e) => saveCheckboxStorage("monday", e)}>Monday</Checkbox>
+			<Checkbox name="tuesday" class="my-2 ml-2" bind:checked={available_days.tuesday} on:change={(e) => saveCheckboxStorage("tuesday", e)}>Tuesday</Checkbox>
+			<Checkbox name="wednesday" class="my-2 ml-2" bind:checked={available_days.wednesday} on:change={(e) => saveCheckboxStorage("wednesday", e)}>Wednesday</Checkbox>
+			<Checkbox name="thursday" class="my-2 ml-2" bind:checked={available_days.thursday} on:change={(e) => saveCheckboxStorage("thursday", e)}>Thursday</Checkbox>
+			<Checkbox name="friday" class="my-2 ml-2" bind:checked={available_days.friday} on:change={(e) => saveCheckboxStorage("friday", e)}>Friday</Checkbox>
+			<Checkbox name="saturday" class="my-2 ml-2" bind:checked={available_days.saturday} on:change={(e) => saveCheckboxStorage("saturday", e)}>Saturday</Checkbox>
+			<Checkbox name="sunday" class="ml-2" bind:checked={available_days.sunday} on:change={(e) => saveCheckboxStorage("sunday", e)}>Sunday</Checkbox>
 		</Label>
 
 		<Label class="mb-4 {requiredAppear && !tattoo_style.color && !tattoo_style.black_and_grey && !tattoo_style.fine_line && !tattoo_style.other ? "bg-red-200" : ""}">
 			Tattoo Design Info - Please select a style: <span class="text-red-600">*</span>
-			<Checkbox class="my-2 ml-2" bind:checked={tattoo_style.color}>Color</Checkbox>
-			<Checkbox class="my-2 ml-2" bind:checked={tattoo_style.black_and_grey}>Black and Grey</Checkbox>
-			<Checkbox class="my-2 ml-2" bind:checked={tattoo_style.fine_line}>Fine Line</Checkbox>
-			<Checkbox class="ml-2" bind:checked={tattoo_style.other}>Other</Checkbox>
+			<Checkbox class="my-2 ml-2" bind:checked={tattoo_style.color} on:change={(e) => saveCheckboxStorage("color", e)}>Color</Checkbox>
+			<Checkbox class="my-2 ml-2" bind:checked={tattoo_style.black_and_grey} on:change={(e) => saveCheckboxStorage("black_and_grey", e)}>Black and Grey</Checkbox>
+			<Checkbox class="my-2 ml-2" bind:checked={tattoo_style.fine_line} on:change={(e) => saveCheckboxStorage("fine_line", e)}>Fine Line</Checkbox>
+			<Checkbox class="ml-2" bind:checked={tattoo_style.other} on:change={(e) => saveCheckboxStorage("other", e)}>Other</Checkbox>
 		</Label>
 
 		<Label class="mb-4">
 			Tattoo Design Description: <span class="text-red-600">*</span>
-			<Textarea class="mt-2 mx-3 w-11/12 {requiredAppear && !tattoo_design ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsDesign} bind:value={tattoo_design} />
+			<Textarea class="mt-2 mx-3 w-11/12 {requiredAppear && !tattoo_design ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsDesign} bind:value={tattoo_design} on:input={(e) => saveSessionStorage("tattoo_design", e)} />
 			<p class="text-xs mx-3 -mt-1">Detailed description of design including theme, etc.</p>
 		</Label>
 		
 		<Label class="mb-4">
 			Tattoo Design Placement: <span class="text-red-600">*</span>
-			<Textarea class="mt-2 mx-3 w-11/12 {requiredAppear && !design_placement ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsPlacement} bind:value={design_placement} />
+			<Textarea class="mt-2 mx-3 w-11/12 {requiredAppear && !design_placement ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsPlacement} bind:value={design_placement} on:input={(e) => saveSessionStorage("tattoo_design", e)} />
 			<p class="text-xs mx-3 -mt-1">Ex: forearm, inner arm, bicep, thigh, calf, etc.</p>
 		</Label>
 		
 		<Label class="mb-4">
 			Tattoo Design Size <span class="text-red-600">*</span>
-			<Textarea class="mt-2 mx-3 w-11/12 {requiredAppear && !tattoo_size ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsSize} bind:value={tattoo_size} />
+			<Textarea class="mt-2 mx-3 w-11/12 {requiredAppear && !tattoo_size ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsSize} bind:value={tattoo_size} on:input={(e) => saveSessionStorage("tattoo_size", e)} />
 			<p class="text-xs mx-3 -mt-1">Please use inches or centimeters.</p>
 		</Label>
 
 		<Label class="mb-4">
 			Working around existing tattoos? <span class="text-red-600">*</span>
-			<Select name="existing_tattoos" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedExistingTattoos ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedExistingTattoos}  />
+			<Select name="existing_tattoos" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedExistingTattoos ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedExistingTattoos} on:input={(e) => saveSessionStorage("selectedExistingTattoos", e)} />
 		</Label>
 
 		<Label class="mb-4">
 			Is this tattoo a coverup? <span class="text-red-600">*</span>
-			<Select name="coverup" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedCoverup ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedCoverup}  />
+			<Select name="coverup" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedCoverup ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedCoverup} on:input={(e) => saveSessionStorage("selectedCoverup", e)} />
 		</Label>
 
 		<Label class="mb-4">
 			Tattooing over scarring? <span class="text-red-600">*</span>
-			<Select name="scarring" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedScarring ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedScarring}  />
+			<Select name="scarring" class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedScarring ? "border-red-500 bg-red-200" : ""}" items={yesNo} bind:value={selectedScarring} on:input={(e) => saveSessionStorage("selectedScarring", e)} />
 		</Label>
 
 		<Label class="mb-3">
 			Allergies or Skin Conditions?
-			<Textarea class="mt-2 mx-3 w-11/12" {...textAreaPropsAllergies} bind:value={allergies} />
+			<Textarea class="mt-2 mx-3 w-11/12" {...textAreaPropsAllergies} bind:value={allergies} on:input={(e) => saveSessionStorage("allergies", e)} />
 		</Label>
 
 		<Label class="mb-4">
 			Event Code
-			<Textarea class="mt-2 mx-3 w-11/12" {...textAreaPropsEvents} bind:value={eventCode} />
+			<Textarea class="mt-2 mx-3 w-11/12" {...textAreaPropsEvents} bind:value={eventCode} on:input={(e) => saveSessionStorage("eventCode", e)} />
 		</Label>
 
 		<Label class="mb-4">
 			Are you currently on antibiotics? <span class="text-red-600">*</span>
-			<Select class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedAntibiotics ? "border-red-500 bg-red-200" : ""}" name="antibiotics" items={yesNo} bind:value={selectedAntibiotics}  />
+			<Select class="mt-2 mx-3 w-6/12 {requiredAppear && !selectedAntibiotics ? "border-red-500 bg-red-200" : ""}" name="antibiotics" items={yesNo} bind:value={selectedAntibiotics} on:input={(e) => saveSessionStorage("selectedAntibiotics", e)} />
 		</Label>
 
 		<Label class="pb-2">Photo(s) of area to be tattooed: <span class="text-red-600">*</span>
@@ -367,4 +419,4 @@
 	</form>
 </div>
 
-<svelte:window on:beforeunload={beforeunload}/>
+<!-- <svelte:window on:beforeunload={beforeunload}/> -->
