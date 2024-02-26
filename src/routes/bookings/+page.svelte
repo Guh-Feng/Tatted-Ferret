@@ -54,6 +54,7 @@
 		tattoo_style.other = JSON.parse(sessionStorage.getItem("other") || "false");
 
 		tattoo_design = sessionStorage.getItem("tattoo_design") || "";
+		design_placement = sessionStorage.getItem("design_placement") || "";
 		tattoo_size = sessionStorage.getItem("tattoo_size") || "";
 		
 		selectedExistingTattoos = sessionStorage.getItem("selectedExistingTattoos") || "";
@@ -240,10 +241,16 @@
 	}
 
 	//Add beforeunload that is disabled when executed by submit button
-	// function beforeunload(event: BeforeUnloadEvent) {
-    //     event.preventDefault();
-    //     return event.returnValue = '';
-    // }
+	function beforeunload(event: BeforeUnloadEvent) {
+		if(!submitConfirm){
+			event.preventDefault();
+			return event.returnValue = '';
+		}
+		else
+		{
+			return true;
+		}
+    }
 
 	function saveSessionStorage(field : string, e : Event){
 		sessionStorage.setItem(field, (e.target as HTMLInputElement).value);
@@ -353,7 +360,7 @@
 		
 		<Label class="mb-4">
 			Tattoo Design Placement: <span class="text-red-600">*</span>
-			<Textarea class="mt-2 mx-3 w-11/12 {requiredAppear && !design_placement ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsPlacement} bind:value={design_placement} on:input={(e) => saveSessionStorage("tattoo_design", e)} />
+			<Textarea class="mt-2 mx-3 w-11/12 {requiredAppear && !design_placement ? "border-red-500 bg-red-200" : ""}" {...textAreaPropsPlacement} bind:value={design_placement} on:input={(e) => saveSessionStorage("design_placement", e)} />
 			<p class="text-xs mx-3 -mt-1">Ex: forearm, inner arm, bicep, thigh, calf, etc.</p>
 		</Label>
 		
@@ -419,4 +426,4 @@
 	</form>
 </div>
 
-<!-- <svelte:window on:beforeunload={beforeunload}/> -->
+<svelte:window on:beforeunload={beforeunload}/>
