@@ -12,6 +12,12 @@
     }
 </script>
 
+<svelte:head>
+	<title>
+		faq
+	</title>
+	<meta name="description" content="Here are some commonly asked questions.">
+</svelte:head>
 
 <img class="absolute top-[17vw] w-[100vw] lg:top-[0vw] lg:w-[83vh] lg:left-[35vw] -z-10 max-h-none max-w-none" src="/faq/faq_background.png" alt="faq section"/>
 

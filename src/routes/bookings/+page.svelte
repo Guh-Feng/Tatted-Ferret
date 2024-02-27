@@ -262,6 +262,13 @@
 	}
 </script>
 
+<svelte:head>
+	<title>
+		Book Appointment
+	</title>
+	<meta name="description" content="Book your appointment with Tatted Ferret Tattoo Studio today.">
+</svelte:head>
+
 <img class="absolute -z-10 hidden lg:flex lg:left-[27vw] lg:w-[110vh] lg:max-h-none lg:max-w-none" src="/booking/booking.png" alt="contacts-screen"/>
 
 <div class="flex flex-col absolute w-screen top-[21vw] -z-20 lg:hidden">

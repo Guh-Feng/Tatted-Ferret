@@ -13,6 +13,13 @@
     }
 </script>
 
+<svelte:head>
+	<title>
+		contact us
+	</title>
+	<meta name="description" content="Here are all the ways you can reach us. There's also a helpful map to see where we are.">
+</svelte:head>
+
 <!--Max height and width changes how much available spacing it has as screen changes not the max size it can be.-->
 
 <img class="absolute hidden lg:flex left-[25%] w-[144.7vh] top-0 -z-10 max-h-none max-w-none" src="/contact/contact-screen.png" alt="contacts-screen"/>

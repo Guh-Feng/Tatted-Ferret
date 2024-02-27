@@ -4,6 +4,13 @@
 	$: activeUrl = $page.url.pathname;
 </script>
 
+<svelte:head>
+	<title>
+		tatted ferret
+	</title>
+	<meta name="description" content="Welcome to the Tatted Ferret Tattoo Studio">
+</svelte:head>
+
 <img class="w-fit mx-auto lg:w-7/12 lg: p-5" src="logo-transparent.png" alt="Tatted Ferret Logo">
 
 <div class="mx-auto grid grid-cols-2 gap-y-2 justify-center lg:justify-items-center lg:absolute lg:top-0 lg:grid-cols-4">

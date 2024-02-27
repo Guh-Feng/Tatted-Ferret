@@ -19,6 +19,13 @@
 	}
 </script>
 
+<svelte:head>
+	<title>
+		@carlosdotnet Portfolio
+	</title>
+	<meta name="description" content="Take a look at @carlosdotnet's tattoo portfolio here.">
+</svelte:head>
+
 <img class="absolute flex flex-col lg:hidden top-[20.5vw] w-[100%] h-auto -z-10 select-none" src="../artists/mobile_carlosdotnet.png" alt="instagram screen"/>
 <img class="absolute hidden lg:flex lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] lg:max-h-none lg:max-w-none -z-10 select-none" src="../artists/carlosdotnet.png" alt="instagram screen"/>
 
