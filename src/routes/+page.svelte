@@ -8,7 +8,7 @@
 	<title>
 		tatted ferret
 	</title>
-	<meta name="description" content="Welcome to the Tatted Ferret Tattoo Studio">
+	<meta name="description" content="Looking to get a tattoo? Book now with any of our artists at Tatted Ferret Tattoo Studio, conveniently located across the MDC Kendall Campus.">
 </svelte:head>
 
 <img class="w-fit mx-auto lg:w-7/12 lg: p-5" src="logo-transparent.png" alt="Tatted Ferret Logo">
