@@ -3,6 +3,17 @@
 	import { page } from '$app/stores';
 	$: activeUrl = $page.url.pathname;
 
+    import addressSelected from '$lib/contact/address_selected.png';
+    import addressUnselected from '$lib/contact/address_unselected.png';
+    import contactScreen from '$lib/contact/contact_screen.png';
+    import emailSelected from '$lib/contact/email_selected.png';
+    import emailUnselected from '$lib/contact/email_unselected.png';
+    import instagramSelected from '$lib/contact/instagram_selected.png';
+    import instagramUnselected from '$lib/contact/instagram_unselected.png';
+    import mobileContactScreen from '$lib/contact/mobile_contact_screen.png';
+    import phoneSelected from '$lib/contact/phone_selected.png';
+    import phoneUnselected from '$lib/contact/phone_unselected.png';
+
     //Instagram links lead to the instagrams
     //Add font to convert images to selectable text
 
@@ -22,15 +33,15 @@
 
 <!--Max height and width changes how much available spacing it has as screen changes not the max size it can be.-->
 
-<img class="absolute hidden lg:flex left-[25%] w-[144.7vh] top-0 -z-10 max-h-none max-w-none" src="/contact/contact-screen.png" alt="contacts-screen"/>
-<img class="absolute flex lg:hidden w-[100vw] top-[20vw] -z-10 max-h-none max-w-none" src="/contact/mobile_contact-screen.png" alt="contacts-screen"/>
+<img class="absolute hidden lg:flex left-[25%] w-[144.7vh] top-0 -z-10 max-h-none max-w-none" src={contactScreen} alt="contacts-screen"/>
+<img class="absolute flex lg:hidden w-[100vw] top-[20vw] -z-10 max-h-none max-w-none" src={mobileContactScreen} alt="contacts-screen"/>
 
 <div class="absolute w-[100vw] top-[30vw] h-[135vw] lg:top-0 lg:left-[25%] lg:w-[144.7vh] lg:h-[100vh]">
     <div class="flex flex-col absolute left-[3%] top-[21vw] w-[15%] h-[29%] lg:left-[27%] lg:top-[21.5%] lg:h-[40%] lg:w-[10.2%]">
-        <button class="flex justify-center" on:click={() => change(0)}><img class="relative top-[20%] lg:top-[20%] w-[100%] lg:w-[70%] max-h-none max-w-none" src={selected === 0 ? "/contact/address_selected.png" : "/contact/address_unselected.png"} alt="address button"></button>
-        <button class="flex justify-center" on:click={() => change(1)}><img class="relative left-[100%] lg:left-[70%] w-[100%] lg:w-[70%] bottom-[9%] max-h-none max-w-none" src={selected === 1 ? "/contact/phone_selected.png" : "/contact/phone_unselected.png"} alt="address button"></button>
-        <button class="flex justify-center" on:click={() => change(2)}><img class="relative left-[100%] lg:left-[70%] w-[100%] lg:w-[70%] top-[9%] max-h-none max-w-none" src={selected === 2 ? "/contact/email_selected.png" : "/contact/email_unselected.png"} alt="address button"></button>
-        <button class="flex justify-center" on:click={() => change(3)}><img class="relative bottom-[20%] lg:bottom-[20%] w-[100%] lg:w-[70%] max-h-none max-w-none" src={selected === 3 ? "/contact/instagram_selected.png" : "/contact/instagram_unselected.png"} alt="address button"></button>
+        <button class="flex justify-center" on:click={() => change(0)}><img class="relative top-[20%] lg:top-[20%] w-[100%] lg:w-[70%] max-h-none max-w-none" src={selected === 0 ? addressSelected : addressUnselected} alt="address button"></button>
+        <button class="flex justify-center" on:click={() => change(1)}><img class="relative left-[100%] lg:left-[70%] w-[100%] lg:w-[70%] bottom-[9%] max-h-none max-w-none" src={selected === 1 ? phoneSelected : phoneUnselected} alt="address button"></button>
+        <button class="flex justify-center" on:click={() => change(2)}><img class="relative left-[100%] lg:left-[70%] w-[100%] lg:w-[70%] top-[9%] max-h-none max-w-none" src={selected === 2 ? emailSelected : emailUnselected} alt="address button"></button>
+        <button class="flex justify-center" on:click={() => change(3)}><img class="relative bottom-[20%] lg:bottom-[20%] w-[100%] lg:w-[70%] max-h-none max-w-none" src={selected === 3 ? instagramSelected : instagramUnselected} alt="address button"></button>
     </div>
 
     <div class="absolute w-[59vw] h-[28vw] top-[18%] left-[36%] lg:w-[38vh] lg:h-[20vh] lg:top-[24%] lg:left-[45%] bg-orange-400 rounded-[5%]"></div>

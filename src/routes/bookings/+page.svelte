@@ -5,7 +5,13 @@
 	import { onMount } from 'svelte';
 	$: activeUrl = $page.url.pathname;
 
-	// 18th birthday tattoos?
+	import booking from '$lib/booking/booking.png';
+	import mobileBookingBody from '$lib/booking/mobile_booking_body.png';
+	import mobileBookingFooter from '$lib/booking/mobile_booking_footer.png';
+	import mobileBookingHeader from '$lib/booking/mobile_booking_header.png';
+	import sparkles from '$lib/booking/sparkles.png';
+	import sparklesRotated from '$lib/booking/sparkles_rotated.png';
+
 	// Upload/loading for image inconsistently uploading
 
 	//Value bindings
@@ -269,17 +275,17 @@
 	<meta name="description" content="Book your appointment with Tatted Ferret Tattoo Studio today.">
 </svelte:head>
 
-<img class="absolute -z-10 hidden lg:flex lg:left-[27vw] lg:w-[110vh] lg:max-h-none lg:max-w-none" src="/booking/booking.png" alt="contacts-screen"/>
+<img class="absolute -z-10 hidden lg:flex lg:left-[27vw] lg:w-[110vh] lg:max-h-none lg:max-w-none" src={booking} alt="contacts-screen"/>
 
 <div class="flex flex-col absolute w-screen top-[21vw] -z-20 lg:hidden">
-	<img class="" src="/booking/mobile_booking_header.png" alt="contacts-screen"/>
-	<img class="flex  h-[75vh]" src="/booking/mobile_booking_body.png" alt="contacts-screen"/>
-	<img class="" src="/booking/mobile_booking_footer.png" alt="contacts-screen"/>
+	<img class="" src={mobileBookingHeader} alt="contacts-screen"/>
+	<img class="flex  h-[75vh]" src={mobileBookingBody} alt="contacts-screen"/>
+	<img class="" src={mobileBookingFooter} alt="contacts-screen"/>
 </div>
 
 <div class="absolute w-screen -z-10 lg:left-[27vw] lg:w-[110vh] lg:h-[100vh] lg:max-h-none lg:max-w-none">
-	<img class="relative -z-10 top-[7vw] left-[8vw] w-[30vw] lg:top-[15vh] lg:left-[43%] lg:w-[18vh]" src="/booking/sparkles.png" alt="contacts-screen"/>
-	<img class="relative -z-10 bottom-[25vw] left-[64vw] w-[30vw] lg:top-[26vh] lg:left-[3.8%] lg:w-[18vh]" src="/booking/sparkles_rotated.png" alt="contacts-screen"/>
+	<img class="relative -z-10 top-[7vw] left-[8vw] w-[30vw] lg:top-[15vh] lg:left-[43%] lg:w-[18vh]" src={sparkles} alt="contacts-screen"/>
+	<img class="relative -z-10 bottom-[25vw] left-[64vw] w-[30vw] lg:top-[26vh] lg:left-[3.8%] lg:w-[18vh]" src={sparklesRotated} alt="contacts-screen"/>
 
 	<form class="relative overflow-y-scroll w-[95vw] h-[74vh] bottom-[31.5vw] left-[4vw] lg:w-[77.5vh] lg:h-[58.6vh] lg:bottom-[7.3vh] lg:left-[22vh]" action={submitConfirm ? "https://formsubmit.co/tattedferret@gmail.com" : ""} enctype="multipart/form-data" method={submitConfirm ? "POST" : ""}>
 		<input type="hidden" name="_subject" value="Form - {selectedArtist}">
@@ -353,10 +359,10 @@
 
 		<Label class="mb-4 {requiredAppear && !tattoo_style.color && !tattoo_style.black_and_grey && !tattoo_style.fine_line && !tattoo_style.other ? "bg-red-200" : ""}">
 			Tattoo Design Info - Please select a style: <span class="text-red-600">*</span>
-			<Checkbox class="my-2 ml-2" bind:checked={tattoo_style.color} on:change={(e) => saveCheckboxStorage("color", e)}>Color</Checkbox>
-			<Checkbox class="my-2 ml-2" bind:checked={tattoo_style.black_and_grey} on:change={(e) => saveCheckboxStorage("black_and_grey", e)}>Black and Grey</Checkbox>
-			<Checkbox class="my-2 ml-2" bind:checked={tattoo_style.fine_line} on:change={(e) => saveCheckboxStorage("fine_line", e)}>Fine Line</Checkbox>
-			<Checkbox class="ml-2" bind:checked={tattoo_style.other} on:change={(e) => saveCheckboxStorage("other", e)}>Other</Checkbox>
+			<Checkbox name="color" class="my-2 ml-2" bind:checked={tattoo_style.color} on:change={(e) => saveCheckboxStorage("color", e)}>Color</Checkbox>
+			<Checkbox name="black_and_grey" class="my-2 ml-2" bind:checked={tattoo_style.black_and_grey} on:change={(e) => saveCheckboxStorage("black_and_grey", e)}>Black and Grey</Checkbox>
+			<Checkbox name="fine_line" class="my-2 ml-2" bind:checked={tattoo_style.fine_line} on:change={(e) => saveCheckboxStorage("fine_line", e)}>Fine Line</Checkbox>
+			<Checkbox name="other" class="ml-2" bind:checked={tattoo_style.other} on:change={(e) => saveCheckboxStorage("other", e)}>Other</Checkbox>
 		</Label>
 
 		<Label class="mb-4">
