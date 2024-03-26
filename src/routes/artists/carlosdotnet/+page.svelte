@@ -4,19 +4,19 @@
     import { Icon } from 'flowbite-svelte-icons';
 	$: activeUrl = $page.url.pathname;
 
-	import carlos from '$lib/artists/carlosdotnet.png';
-	import carlosMobile from '$lib/artists/mobile_carlosdotnet.png';
+	import carlos from '$lib/artists/carlosdotnet.png?enhanced';
+	import carlosMobile from '$lib/artists/mobile_carlosdotnet.png?enhanced';
 
-	import carlos1 from '$lib/artists/carlos/carlos1.png';
-	import carlos2 from '$lib/artists/carlos/carlos2.png';
-	import carlos3 from '$lib/artists/carlos/carlos3.png';
-	import carlos4 from '$lib/artists/carlos/carlos4.png';
-	import carlos5 from '$lib/artists/carlos/carlos5.png';
-	import carlos6 from '$lib/artists/carlos/carlos6.png';
-	import carlos7 from '$lib/artists/carlos/carlos7.png';
-	import carlos8 from '$lib/artists/carlos/carlos8.png';
-	import carlos9 from '$lib/artists/carlos/carlos9.png';
-	import carlos10 from '$lib/artists/carlos/carlos10.png';
+	import carlos1 from '$lib/artists/carlos/carlos1.png?enhanced';
+	import carlos2 from '$lib/artists/carlos/carlos2.png?enhanced';
+	import carlos3 from '$lib/artists/carlos/carlos3.png?enhanced';
+	import carlos4 from '$lib/artists/carlos/carlos4.png?enhanced';
+	import carlos5 from '$lib/artists/carlos/carlos5.png?enhanced';
+	import carlos6 from '$lib/artists/carlos/carlos6.png?enhanced';
+	import carlos7 from '$lib/artists/carlos/carlos7.png?enhanced';
+	import carlos8 from '$lib/artists/carlos/carlos8.png?enhanced';
+	import carlos9 from '$lib/artists/carlos/carlos9.png?enhanced';
+	import carlos10 from '$lib/artists/carlos/carlos10.png?enhanced';
 
 	const carlosImages:{[key:string]:string} = {carlos1, carlos2, carlos3, carlos4, carlos5, carlos6, carlos7, carlos8, carlos9, carlos10}
 
@@ -42,8 +42,8 @@
 	<meta name="description" content="Take a look at @carlosdotnet's tattoo portfolio here.">
 </svelte:head>
 
-<img class="absolute flex flex-col lg:hidden top-[20.5vw] w-[100%] h-auto -z-10 select-none" src={carlosMobile} alt="instagram screen"/>
-<img class="absolute hidden lg:flex lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] lg:max-h-none lg:max-w-none -z-10 select-none" src={carlos} alt="instagram screen"/>
+<enhanced:img class="absolute flex flex-col lg:hidden top-[20.5vw] w-[100%] h-auto -z-10 select-none" src={carlosMobile} alt="instagram screen"/>
+<enhanced:img class="absolute hidden lg:flex lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] lg:max-h-none lg:max-w-none -z-10 select-none" src={carlos} alt="instagram screen"/>
 
 <div class="flex lg:hidden">
 	<a class="mx-auto" href="/artists/tatterjae"><Icon name="arrow-left-outline" class="h-[20vw] w-auto text-white" /></a>
@@ -52,7 +52,7 @@
 
 <div class="relative flex flex-col w-[100%] h-[138vw] max-h-none max-w-none lg:flex-row lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] select-none">
 
-	<a class="relative h-auto w-[54.1%] top-[27%] left-[22.7%] lg:h-[42%] lg:w-auto lg:left-[42.3%] lg:top-[27.7%]" href="https://instagram.com/carlosdotnet" target="_blank"><img class="relative -z-10 h-[100%] w-[100%] select-none" src={carlosImages[`carlos${imageSelection}`]} alt="slideshow of tattoos"></a>
+	<a class="relative h-auto w-[54.1%] top-[27%] left-[22.7%] lg:h-[42%] lg:w-auto lg:left-[42.3%] lg:top-[27.7%]" href="https://instagram.com/carlosdotnet" target="_blank"><enhanced:img class="relative -z-10 h-[100%] w-[100%] select-none" src={carlosImages[`carlos${imageSelection}`]} alt="slideshow of tattoos"></a>
 
 	<Icon name="arrow-left-outline" on:click={() => decrement()} class="relative max-h-none w-[9%] h-auto top-[41.5%] left-[25.4%] lg:top-[85.2%] lg:left-[10.8%] lg:h-[5%] lg:w-auto text-red-600" />
 	<Icon name="arrow-right-outline" on:click={() => increment()} class="relative max-w-none w-[9%] h-auto top-[36.4%] left-[65%] lg:top-[85.2%] lg:left-[30.5%] lg:h-[5%] lg:w-auto text-red-600" />

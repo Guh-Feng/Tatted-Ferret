@@ -4,19 +4,19 @@
     import { Icon } from 'flowbite-svelte-icons';
 	$: activeUrl = $page.url.pathname;
 
-	import dom from "$lib/artists/domthekid.png"
-	import domMobile from "$lib/artists/mobile_domthekid.png"
+	import dom from "$lib/artists/domthekid.png?enhanced"
+	import domMobile from "$lib/artists/mobile_domthekid.png?enhanced"
 
-	import dom1 from "$lib/artists/dom/dom1.png"
-	import dom2 from "$lib/artists/dom/dom2.png"
-	import dom3 from "$lib/artists/dom/dom3.png"
-	import dom4 from "$lib/artists/dom/dom4.png"
-	import dom5 from "$lib/artists/dom/dom5.png"
-	import dom6 from "$lib/artists/dom/dom6.png"
-	import dom7 from "$lib/artists/dom/dom7.png"
-	import dom8 from "$lib/artists/dom/dom8.png"
-	import dom9 from "$lib/artists/dom/dom9.png"
-	import dom10 from "$lib/artists/dom/dom10.png"
+	import dom1 from "$lib/artists/dom/dom1.png?enhanced"
+	import dom2 from "$lib/artists/dom/dom2.png?enhanced"
+	import dom3 from "$lib/artists/dom/dom3.png?enhanced"
+	import dom4 from "$lib/artists/dom/dom4.png?enhanced"
+	import dom5 from "$lib/artists/dom/dom5.png?enhanced"
+	import dom6 from "$lib/artists/dom/dom6.png?enhanced"
+	import dom7 from "$lib/artists/dom/dom7.png?enhanced"
+	import dom8 from "$lib/artists/dom/dom8.png?enhanced"
+	import dom9 from "$lib/artists/dom/dom9.png?enhanced"
+	import dom10 from "$lib/artists/dom/dom10.png?enhanced"
 	
 	const domImages:{[key:string]:string} = {dom1, dom2, dom3, dom4, dom5, dom6, dom7, dom8, dom9, dom10}
 
@@ -43,8 +43,8 @@
 	<meta name="description" content="Take a look at @domthekidtattoos's tattoo portfolio here.">
 </svelte:head>
 
-<img class="absolute flex flex-col lg:hidden top-[20.5vw] w-[100%] h-auto -z-10 select-none" src={domMobile} alt="instagram screen"/>
-<img class="absolute hidden lg:flex lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] lg:max-h-none lg:max-w-none -z-10 select-none" src={dom} alt="instagram screen"/>
+<enhanced:img class="absolute flex flex-col lg:hidden top-[20.5vw] w-[100%] h-auto -z-10 select-none" src={domMobile} alt="instagram screen"/>
+<enhanced:img class="absolute hidden lg:flex lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] lg:max-h-none lg:max-w-none -z-10 select-none" src={dom} alt="instagram screen"/>
 
 <div class="flex lg:hidden">
 	<a class="mx-auto" href="/artists/carlosdotnet"><Icon name="arrow-left-outline" class="h-[20vw] w-auto text-white" /></a>
@@ -53,7 +53,7 @@
 
 <div class="relative flex flex-col w-[100%] h-[138vw] max-h-none max-w-none lg:flex-row lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] select-none">
 
-	<a class="relative h-auto w-[54.1%] top-[27%] left-[22.7%] lg:h-[42%] lg:w-auto lg:left-[42.3%] lg:top-[27.7%]" href="https://www.instagram.com/domthekid.tattoos/" target="_blank"><img class="relative -z-10 h-[100%] w-[100%] select-none" src={domImages[`dom${imageSelection}`]} alt="slideshow of tattoos"></a>
+	<a class="relative h-auto w-[54.1%] top-[27%] left-[22.7%] lg:h-[42%] lg:w-auto lg:left-[42.3%] lg:top-[27.7%]" href="https://www.instagram.com/domthekid.tattoos/" target="_blank"><enhanced:img class="relative -z-10 h-[100%] w-[100%] select-none" src={domImages[`dom${imageSelection}`]} alt="slideshow of tattoos"></a>
 
 	<Icon name="arrow-left-outline" on:click={() => decrement()} class="relative max-h-none w-[9%] h-auto top-[41.5%] left-[25.4%] lg:top-[85.2%] lg:left-[10.8%] lg:h-[5%] lg:w-auto text-purple-600" />
 	<Icon name="arrow-right-outline" on:click={() => increment()} class="relative max-w-none w-[9%] h-auto top-[36.4%] left-[65%] lg:top-[85.2%] lg:left-[30.5%] lg:h-[5%] lg:w-auto text-purple-600" />
