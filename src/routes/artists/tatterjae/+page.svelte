@@ -46,7 +46,7 @@
 </svelte:head>
 
 <enhanced:img class="absolute flex flex-col lg:hidden top-[20.5vw] w-[100%] h-auto -z-10 select-none" src={jaeMobile} alt="instagram screen"/>
-<enhanced:img class="absolute hidden lg:flex lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] lg:max-h-none lg:max-w-none -z-10 select-none" src="$lib/artists/tatterjae.png" alt="instagram screen"/>
+<enhanced:img class="absolute hidden lg:flex lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] lg:max-h-none lg:max-w-none -z-10 select-none" src={jae} alt="instagram screen"/>
 
 <div class="flex lg:hidden">
 	<a class="mx-auto" href="/artists/domthekidtattoos"><Icon name="arrow-left-outline" class="h-[20vw] w-auto text-white" /></a>
