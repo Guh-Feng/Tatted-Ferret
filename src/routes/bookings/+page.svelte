@@ -5,12 +5,12 @@
 	import { onMount } from 'svelte';
 	$: activeUrl = $page.url.pathname;
 
-	import booking from '$lib/booking/booking.png';
-	import mobileBookingBody from '$lib/booking/mobile_booking_body.png';
-	import mobileBookingFooter from '$lib/booking/mobile_booking_footer.png';
-	import mobileBookingHeader from '$lib/booking/mobile_booking_header.png';
-	import sparkles from '$lib/booking/sparkles.png';
-	import sparklesRotated from '$lib/booking/sparkles_rotated.png';
+	import booking from '$lib/booking/booking.png?enhanced';
+	import mobileBookingBody from '$lib/booking/mobile_booking_body.png?enhanced';
+	import mobileBookingFooter from '$lib/booking/mobile_booking_footer.png?enhanced';
+	import mobileBookingHeader from '$lib/booking/mobile_booking_header.png?enhanced';
+	import sparkles from '$lib/booking/sparkles.png?enhanced';
+	import sparklesRotated from '$lib/booking/sparkles_rotated.png?enhanced';
 
 	// Upload/loading for image inconsistently uploading
 
@@ -275,17 +275,17 @@
 	<meta name="description" content="Book your appointment with Tatted Ferret Tattoo Studio today.">
 </svelte:head>
 
-<img class="absolute -z-10 hidden lg:flex lg:left-[27vw] lg:w-[110vh] lg:max-h-none lg:max-w-none" src={booking} alt="contacts-screen"/>
+<enhanced:img class="absolute -z-10 hidden lg:flex lg:left-[27vw] lg:w-[110vh] lg:max-h-none lg:max-w-none" src={booking} alt="contacts-screen"/>
 
 <div class="flex flex-col absolute w-screen top-[21vw] -z-20 lg:hidden">
-	<img class="" src={mobileBookingHeader} alt="contacts-screen"/>
-	<img class="flex  h-[75vh]" src={mobileBookingBody} alt="contacts-screen"/>
-	<img class="" src={mobileBookingFooter} alt="contacts-screen"/>
+	<enhanced:img class="" src={mobileBookingHeader} alt="contacts-screen"/>
+	<enhanced:img class="flex  h-[75vh]" src={mobileBookingBody} alt="contacts-screen"/>
+	<enhanced:img class="" src={mobileBookingFooter} alt="contacts-screen"/>
 </div>
 
 <div class="absolute w-screen -z-10 lg:left-[27vw] lg:w-[110vh] lg:h-[100vh] lg:max-h-none lg:max-w-none">
-	<img class="relative -z-10 top-[7vw] left-[8vw] w-[30vw] lg:top-[15vh] lg:left-[43%] lg:w-[18vh]" src={sparkles} alt="contacts-screen"/>
-	<img class="relative -z-10 bottom-[25vw] left-[64vw] w-[30vw] lg:top-[26vh] lg:left-[3.8%] lg:w-[18vh]" src={sparklesRotated} alt="contacts-screen"/>
+	<enhanced:img class="relative -z-10 top-[7vw] left-[8vw] w-[30vw] lg:top-[15vh] lg:left-[43%] lg:w-[18vh]" src={sparkles} alt="contacts-screen"/>
+	<enhanced:img class="relative -z-10 bottom-[25vw] left-[64vw] w-[30vw] lg:top-[26vh] lg:left-[3.8%] lg:w-[18vh]" src={sparklesRotated} alt="contacts-screen"/>
 
 	<iframe class="relative overflow-y-scroll w-[95.6vw] h-[75vh] bottom-[32.4vw] left-[2.65vw] lg:w-[79vh] lg:h-[58.8vh] lg:bottom-[7.4vh] lg:left-[20.2vh] -z-20"
 			id="appointment"
