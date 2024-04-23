@@ -37,7 +37,7 @@
 		<div class="lg:absolute lg:top-[10vh] lg:py-[44vh] lg:px-[7vh] lg:bg-orange-400 lg:rounded-full lg:-z-10"></div>
 		<a href="/" class="lg:flex hidden w-[33vh]"><enhanced:img src={logoTransparent} alt="tatted ferret logo" class="select-none"/></a>
 		<div class="mx-auto grid grid-cols-2 gap-y-2 align-middle z-10 lg:grid-cols-1 bg-orange-400 lg:bg-transparent">
-			<a href="/artists/tatterjae" class="w-[47.6vw] {activeUrl == "/artists/tatterjae" || activeUrl == "/artists/carlosdotnet" || activeUrl == "/artists/domthekidtattoos" ? "relative lg:left-10" : ""} lg:w-[17vh] "><enhanced:img src={artists} alt="artists" class="select-none"/></a>
+			<a href="/artists/tatterjae" class="w-[47.6vw] {activeUrl == "/artists/tatterjae" || activeUrl == "/artists/gomezink" || activeUrl == "/artists/domthekidtattoos" ? "relative lg:left-10" : ""} lg:w-[17vh] "><enhanced:img src={artists} alt="artists" class="select-none"/></a>
 			<a href="/bookings" class="{activeUrl == "/bookings" ? "relative lg:left-10" : ""} lg:w-[17vh] "><enhanced:img src={book} alt="bookings" class="select-none"/></a>
 			<a href="/faq" class="w-[47.6vw] {activeUrl == "/faq" ? "relative lg:left-10" : ""} lg:w-[17vh] "><enhanced:img src={faq} alt="frequently asked questions" class="select-none"/></a>
 			<a href="/contacts" class="relative bottom-[4.5vw] {activeUrl == "/contacts" ? "lg:left-10" : ""} lg:w-[17vh] lg:bottom-0"><enhanced:img src={contact} alt="contact" class="select-none"/></a>
