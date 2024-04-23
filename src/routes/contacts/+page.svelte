@@ -96,7 +96,7 @@
         Studio Instagram<br>@tattedferret
     </p>
     <p class="relative top-[31.5%] w-[60%] left-[36%] text-[5.7vw]/[5.7vw] lg:w-[30%] lg:top-[36%] lg:left-[42.2%] lg:text-[3.5vh]/[4vh] font-lickorishe text-orange-600 text-center">
-        @domthekid.tattoos<br>@carlosdotnet<br>@tatterjae
+        @domthekid.tattoos<br>@gomezink<br>@tatterjae
     </p>
 {/if}
 
