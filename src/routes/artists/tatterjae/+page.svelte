@@ -50,7 +50,7 @@
 
 <div class="flex lg:hidden">
 	<a class="mx-auto" href="/artists/domthekidtattoos"><Icon name="arrow-left-outline" class="h-[20vw] w-auto text-white" /></a>
-	<a class="mx-auto" href="/artists/carlosdotnet"><Icon name="arrow-right-outline" class="h-[20vw] w-auto text-white" /></a>
+	<a class="mx-auto" href="/artists/gomezink"><Icon name="arrow-right-outline" class="h-[20vw] w-auto text-white" /></a>
 </div>
 
 <div class="relative flex flex-col w-[100%] h-[138vw] max-h-none max-w-none lg:flex-row lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] select-none">
@@ -72,5 +72,5 @@
 	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[5.2%] left-[74.3%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:left-[15.9%] {imageSelection == 10 ? "bg-black" : "bg-white"}"></div>
 
 	<a class="relative lg:top-[40%] lg:right-[77%] lg:w-[20%] lg:h-[17%]" href="/artists/domthekidtattoos"><Icon name="arrow-left-outline" class="relative hidden lg:flex lg:w-[100%] lg:h-[100%] text-white" /></a>
-	<a class="relative lg:top-[40%] lg:left-[21%] lg:w-[20%] lg:h-[17%]" href="/artists/carlosdotnet"><Icon name="arrow-right-outline" class="relative hidden lg:flex lg:w-[100%] lg:h-[100%] text-white" /></a>
+	<a class="relative lg:top-[40%] lg:left-[21%] lg:w-[20%] lg:h-[17%]" href="/artists/gomezink"><Icon name="arrow-right-outline" class="relative hidden lg:flex lg:w-[100%] lg:h-[100%] text-white" /></a>
 </div>

@@ -47,7 +47,7 @@
 <enhanced:img class="absolute hidden lg:flex lg:w-[118vh] lg:h-[100vh] lg:left-[30vw] lg:max-h-none lg:max-w-none -z-10 select-none" src={dom} alt="instagram screen"/>
 
 <div class="flex lg:hidden">
-	<a class="mx-auto" href="/artists/carlosdotnet"><Icon name="arrow-left-outline" class="h-[20vw] w-auto text-white" /></a>
+	<a class="mx-auto" href="/artists/gomezink"><Icon name="arrow-left-outline" class="h-[20vw] w-auto text-white" /></a>
 	<a class="mx-auto" href="/artists/tatterjae"><Icon name="arrow-right-outline" class="h-[20vw] w-auto text-white" /></a>
 </div>
 
@@ -69,6 +69,6 @@
 	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[6.6%] left-[68.6%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:left-[14.1%] {imageSelection == 9 ? "bg-black" : "bg-white"}"></div>
 	<div class="relative -z-10 rounded-[50%] w-[2%] h-[1.4%] top-[5.2%] left-[74.3%] lg:w-[1.5%] lg:h-[1.5%] lg:top-[71.3%] lg:left-[15.9%] {imageSelection == 10 ? "bg-black" : "bg-white"}"></div>
 
-	<a class="relative lg:top-[40%] lg:right-[77%] lg:w-[20%] lg:h-[17%]" href="/artists/carlosdotnet"><Icon name="arrow-left-outline" class="relative hidden lg:flex lg:w-[100%] lg:h-[100%] text-white" /></a>
+	<a class="relative lg:top-[40%] lg:right-[77%] lg:w-[20%] lg:h-[17%]" href="/artists/gomezink"><Icon name="arrow-left-outline" class="relative hidden lg:flex lg:w-[100%] lg:h-[100%] text-white" /></a>
 	<a class="relative lg:top-[40%] lg:left-[21%] lg:w-[20%] lg:h-[17%]" href="/artists/tatterjae"><Icon name="arrow-right-outline" class="relative hidden lg:flex lg:w-[100%] lg:h-[100%] text-white" /></a>
 </div>
