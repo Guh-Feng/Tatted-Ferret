@@ -6,7 +6,7 @@
 
 	import logoTransparent from '$lib/logo-transparent.png?enhanced'
 	import artists from '$lib/artists.png?enhanced'
-	import book from '$lib/book.png?enhanced'
+	import book from '$lib/book+buy.png?enhanced'
 	import contact from '$lib/contact.png?enhanced'
 	import faq from '$lib/faq.png?enhanced'
 
