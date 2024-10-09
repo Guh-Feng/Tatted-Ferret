@@ -68,14 +68,14 @@
         <iframe class="relative left-[35%] top-[17.5%] w-[61%] h-[22%] lg:left-[42.6%] lg:top-[23.5%] lg:w-[28%] lg:h-[21%]" title="Tatted Ferret Location" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAkaBasDIjIOFgV-Rnu-kpfHQzCRD65uu8
             &q=Tatted Ferret Tattoo Studio"></iframe>
-        <p class="relative top-[20%] w-[60%] left-[36%] text-[6vw]/[6vw] lg:top-[25%] lg:w-[30%] lg:left-[42%] lg:text-[4.4vh]/[5vh] font-lickorishe text-orange-600 text-center">
-            10856 SW 104th St<br>Suite 126<br>Miami, Fl, 33176
+        <p class="relative top-[20%] w-[60%] left-[36%] text-[5.4vw]/[5.4vw] lg:top-[25%] lg:w-[30%] lg:left-[42%] lg:text-[4vh]/[5vh] font-lickorishe text-orange-600 text-center">
+            9290 Hammocks Blvd<br>Ste 402-B<br>Miami, FL, 33196
         </p>
     {/if}
  
     {#if selected === 1}
         <p class="relative top-[24%] w-[60%] left-[35.5%] text-[6vw]/[6vw] lg:top-[29%] lg:w-[30%] lg:left-[42%] lg:text-[4.4vh]/[5vh] font-lickorishe text-white text-center">
-            Studio number<br>305-707-4246
+            Studio number<br>786-542-5759
         </p>
         <p class="relative top-[32%] w-[60%] left-[36%] text-[5.7vw]/[5.7vw] lg:w-[30%] lg:top-[35%] lg:left-[42%] lg:text-[3.5vh]/[4vh] font-lickorishe text-orange-600 text-center">
             For tattoo requests,<br>please fill out our<br>booking form.
@@ -95,8 +95,8 @@
     <p class="relative top-[24.5%] w-[60%] left-[35.5%] text-[6vw]/[6vw] lg:top-[30%] lg:w-[30%] lg:left-[42.2%] lg:text-[4vh]/[4.5vh] font-lickorishe text-white text-center">
         Studio Instagram<br>@tattedferret
     </p>
-    <p class="relative top-[31.5%] w-[60%] left-[36%] text-[5.7vw]/[5.7vw] lg:w-[30%] lg:top-[36%] lg:left-[42.2%] lg:text-[3.5vh]/[4vh] font-lickorishe text-orange-600 text-center">
-        @domthekid.tattoos<br>@gomezink<br>@tatterjae
+    <p class="relative top-[31.5%] w-[60%] left-[36%] text-[5.2vw]/[5.2vw] lg:w-[30%] lg:top-[36%] lg:left-[42.2%] lg:text-[3vh]/[3.5vh] font-lickorishe text-orange-600 text-center">
+        @domthekid.tattoos<br>@gomezink<br>@tatterjae<br>@edgardo_thompson_<br>arttattoo
     </p>
 {/if}
 

@@ -12,6 +12,7 @@
 
 	//Can click through the background to the instagram page
 	//Accessibility, form, optimization, and background pass
+	//Need to change the top layout to not remain changed when going from mobile to desktop size
 
 	let openMenu = false;
 	function displayMenu()
